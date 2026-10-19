@@ -1,0 +1,232 @@
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\appsettings.Development.json
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\appsettings.json
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\BookLy Project.staticwebassets.runtime.json
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\BookLy Project.staticwebassets.endpoints.json
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\BookLy Project.exe
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\BookLy Project.deps.json
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\BookLy Project.runtimeconfig.json
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\BookLy Project.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\BookLy Project.pdb
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Azure.Core.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Azure.Identity.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Humanizer.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.Build.Framework.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.Identity.Client.Broker.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.Identity.Client.NativeInterop.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Mono.TextTemplating.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\Newtonsoft.Json.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\System.ClientModel.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\System.CodeDom.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\System.Composition.Convention.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\System.Composition.Hosting.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\System.Composition.Runtime.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\System.Composition.TypedParts.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\System.Memory.Data.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\runtimes\linux-x64\native\libmsalruntime.so
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\runtimes\osx-arm64\native\msalruntime_arm64.dylib
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\runtimes\osx-x64\native\msalruntime.dylib
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\runtimes\win-arm64\native\msalruntime_arm64.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\runtimes\win-x64\native\msalruntime.dll
+E:\NETC#1\BookLy Project\bin\Debug\net10.0\runtimes\win-x86\native\msalruntime_x86.dll
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\BookLy Project.csproj.AssemblyReference.cache
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\rpswa.dswa.cache.json
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\BookLy Project.GeneratedMSBuildEditorConfig.editorconfig
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\BookLy Project.AssemblyInfoInputs.cache
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\BookLy Project.AssemblyInfo.cs
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\BookLy Project.csproj.CoreCompileInputs.cache
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\BookLy Project.MvcApplicationPartsAssemblyInfo.cache
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\BookLy Project.RazorAssemblyInfo.cache
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\BookLy Project.RazorAssemblyInfo.cs
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\rjimswa.dswa.cache.json
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\scopedcss\bundle\BookLy Project.styles.css
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\scopedcss\projectbundle\BookLy Project.bundle.scp.css
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\had2ew7yiv-{0}-b9sayid5wm-b9sayid5wm.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\sons1ciq4o-{0}-61n19gt1b8-61n19gt1b8.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\e9s4qvwezg-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\y1sw7wzwhf-{0}-bqjiyaj88i-bqjiyaj88i.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\7wcfo378qa-{0}-c2jlpeoesf-c2jlpeoesf.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\q0ix8xfoqf-{0}-erw9l3u2r3-erw9l3u2r3.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\48gjlgkfym-{0}-aexeepp0ev-aexeepp0ev.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\eb03qzfvfp-{0}-d7shbmvgxk-d7shbmvgxk.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\r4btizb3s2-{0}-ausgxo2sd3-ausgxo2sd3.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\uy4bi5tk73-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\jsnzmu9trr-{0}-cosvhxvwiu-cosvhxvwiu.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\vwzjncrdt7-{0}-ub07r2b239-ub07r2b239.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\lm8t084y9f-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\8kofm0lzrw-{0}-b7pk76d08c-b7pk76d08c.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\voyipxi0pu-{0}-fsbi9cje9m-fsbi9cje9m.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\3hhiwnwcm5-{0}-rzd6atqjts-rzd6atqjts.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\bc4ryk6erv-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\vwa92737vd-{0}-dxx9fxp4il-dxx9fxp4il.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\xumwbcrejl-{0}-jd9uben2k1-jd9uben2k1.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\eqcci4uxa4-{0}-khv3u5hwcm-khv3u5hwcm.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\w7j29g6mpz-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\srgyr13pem-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\6dpj6o4uop-{0}-c2oey78nd0-c2oey78nd0.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\vh1ibpzmmz-{0}-tdbxkamptv-tdbxkamptv.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\2utrditou7-{0}-j5mq2jizvt-j5mq2jizvt.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\ubej0m3yqy-{0}-06098lyss8-06098lyss8.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\sg20zp8e2p-{0}-nvvlpmu67g-nvvlpmu67g.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\upiityemfe-{0}-s35ty4nyc5-s35ty4nyc5.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\d1mp0s4msk-{0}-pj5nd1wqec-pj5nd1wqec.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\q60ceiexsx-{0}-46ein0sx1k-46ein0sx1k.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\p3s56jf8s7-{0}-v0zj4ognzu-v0zj4ognzu.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\nxvicblwe6-{0}-37tfw0ft22-37tfw0ft22.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\yrykf3gboi-{0}-hrwsygsryq-hrwsygsryq.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\133a6khb0a-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\t9x62p4nbf-{0}-ft3s53vfgj-ft3s53vfgj.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\6eckfybc0u-{0}-6cfz1n2cew-6cfz1n2cew.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\5pixe3hhsp-{0}-6pdc2jztkx-6pdc2jztkx.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\jdukx2ugu3-{0}-493y06b0oq-493y06b0oq.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\iar7eoygjs-{0}-iovd86k7lj-iovd86k7lj.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\s78ij4sr55-{0}-vr1egmr9el-vr1egmr9el.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\qheg6z5xzw-{0}-kbrnm935zg-kbrnm935zg.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\vs404uja28-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\9ctwp5i457-{0}-y7v9cxd14o-y7v9cxd14o.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\mv2jsa04y4-{0}-notf2xhcfb-notf2xhcfb.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\57ti3xapsi-{0}-h1s4sie4z3-h1s4sie4z3.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\bg1xx2ol6e-{0}-63fj8s7r0e-63fj8s7r0e.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\i1gzaisl10-{0}-0j3bgjxly4-0j3bgjxly4.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\yxt6x3pte0-{0}-47otxtyo56-47otxtyo56.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\egk8df22bx-{0}-4v8eqarkd7-4v8eqarkd7.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\y7i5gsbur2-{0}-356vix0kms-356vix0kms.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\jb1rzd2slc-{0}-83jwlth58m-83jwlth58m.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\ita3po78qr-{0}-mrlpezrjn3-mrlpezrjn3.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\pu4dy8alvk-{0}-lzl9nlhx6b-lzl9nlhx6b.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\w3a81m3gsc-{0}-ag7o75518u-ag7o75518u.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\qo9gl45n0v-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\z4aprwxz6x-{0}-0i3buxo5is-0i3buxo5is.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\68dse4bq80-{0}-o1o13a6vjx-o1o13a6vjx.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\y3j17hycv9-{0}-ttgo8qnofa-ttgo8qnofa.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\gbx1wercpo-{0}-2z0ns9nrw6-2z0ns9nrw6.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\l7ccc0i7z3-{0}-muycvpuwrr-muycvpuwrr.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\epsxi44zqm-{0}-87fc7y1x7t-87fc7y1x7t.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\rduem7w1zk-{0}-mlv21k5csn-mlv21k5csn.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\latsa9vk7n-{0}-zktfylb8bc-zktfylb8bc.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\compressed\mpyi6cz57s-{0}-zktfylb8bc-zktfylb8bc.gz
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\staticwebassets.build.json
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\staticwebassets.build.json.cache
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\staticwebassets.development.json
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\swae.build.ex.cache
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\BookLy P.0147FA9C.Up2Date
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\BookLy Project.dll
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\refint\BookLy Project.dll
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\BookLy Project.pdb
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\BookLy Project.genruntimeconfig.cache
+E:\NETC#1\BookLy Project\obj\Debug\net10.0\ref\BookLy Project.dll

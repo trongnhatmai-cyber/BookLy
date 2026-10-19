@@ -1,0 +1,63 @@
+﻿```cshtml
+@model BookLy_Project.Models.Category
+
+@{
+    ViewData["Title"] = "Thêm thể loại";
+}
+
+<div class="min-h-screen bg-slate-50 p-6 md:p-10">
+    <div class="mx-auto max-w-2xl">
+
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-slate-800">
+                Thêm thể loại mới
+            </h1>
+            <p class="mt-2 text-sm text-slate-500">
+                Thêm thể loại sách vào thư viện BookLy.
+            </p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+            <div class="border-b border-slate-100 px-6 py-5">
+                <h2 class="font-semibold text-slate-800">
+                    Thông tin thể loại
+                </h2>
+            </div>
+
+            <form asp-action="CreateCategory" method="post" class="p-6">
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="ModelOnly"
+                     class="mb-4 text-sm text-red-500"></div>
+
+                <label asp-for="CategoryName"
+                       class="mb-2 block text-sm font-semibold text-slate-700">
+                    Tên thể loại
+                </label>
+
+                <input asp-for="CategoryName"
+                       placeholder="Ví dụ: Văn học, Công nghệ..."
+                       maxlength="100"
+                       class="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" />
+
+                <span asp-validation-for="CategoryName"
+                      class="mt-1 block text-sm text-red-500"></span>
+
+                <div class="mt-8 flex justify-end gap-3 border-t border-slate-100 pt-6">
+                    <a asp-action="CategoryManager"
+                           class="rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50">
+                        Hủy
+                    </a>
+
+                    <button type="submit"
+                            class="rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700">
+                        + Thêm thể loại
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+```

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BOOKLY</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+        font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white border-r border-gray-100 flex flex-col justify-between p-6">
+            <div>
+                <!-- Logo & Brand -->
+                <div class="mb-8">
+                    <h1 class="text-2xl font-bold text-blue-600 tracking-tight">BOOKLY.</h1>
+                    <p class="text-xs text-gray-400 mt-0.5">Thư viện của bạn</p>
+                </div>
+
+                <!-- Navigation Menu -->
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Khám phá</p>
+                        <nav class="space-y-1">
+                            <a asp-controller="Admin" asp-action="Index" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm transition-colors @(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "bg-blue-50 text-blue-600" : "text-gray-600 hover:bg-gray-50")">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                                Tổng quan
+                            </a>
+                            <a asp-action="BookManager" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-gray-600 hover:bg-gray-50 transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                Quản lý sách
+                            </a>
+                            <a asp-action="CategoryManager" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-gray-600 hover:bg-gray-50 transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                Thể loại
+                            </a>
+                            <a asp-action="BorrowManager" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-gray-600 hover:bg-gray-50 transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                                Mượn & trả
+                            </a>
+                            <a asp-action="UserManager" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-gray-600 hover:bg-gray-50 transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                                Người dùng
+                            </a>
+                            <a asp-controller="Admin"
+                                   asp-action="Profile"
+                                   class="flex items-center gap-3 rounded-xl px-4 py-3
+                                text-slate-600 transition hover:bg-blue-50 hover:text-blue-600">
+                                <span>👤</span>
+                                <span>Hồ sơ người dùng</span>
+                            </a>
+                            <a asp-controller="Home"
+                                   asp-action="Logout"
+                                   class="flex items-center gap-3 rounded-xl px-4 py-3
+                                text-slate-600 transition hover:bg-red-50 hover:text-red-600">
+
+                                <span>↪</span>
+                                <span>Đăng xuất</span>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 p-10 bg-gray-50/50">
+            @RenderBody()
+        </main>
+    </div>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

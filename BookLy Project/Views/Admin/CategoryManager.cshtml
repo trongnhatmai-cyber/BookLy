@@ -1,0 +1,258 @@
+﻿
+@model IEnumerable<BookLy_Project.Models.Category>
+
+@{
+    ViewData["Title"] = "Quản lý thể loại";
+}
+
+<div class="min-h-screen bg-slate-50 p-6 md:p-8">
+    <div class="mx-auto max-w-7xl">
+
+        <!-- Tiêu đề -->
+        <div class="mb-8 flex flex-wrap items-center justify-between gap-4">
+            <div>
+                <h1 class="text-3xl font-bold text-slate-800">
+                    Quản lý thể loại
+                </h1>
+                <p class="mt-2 text-sm text-slate-500">
+                    Quản lý và phân loại sách trong thư viện BookLy.
+                </p>
+            </div>
+
+            <a asp-action="CreateCategory"
+                   class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3
+                text-sm font-semibold text-white shadow-sm transition
+                hover:bg-blue-700">
+                <span class="text-lg">+</span>
+                Thêm thể loại
+            </a>
+        </div>
+
+        <!-- Thông báo -->
+        @if (TempData["Success"] != null)
+        {
+            <div class="mb-5 rounded-xl border border-green-200 bg-green-50
+                px-5 py-3 text-sm text-green-700">
+                @TempData["Success"]
+            </div>
+        }
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="mb-5 rounded-xl border border-red-200 bg-red-50
+                px-5 py-3 text-sm text-red-600">
+                @TempData["Error"]
+            </div>
+        }
+
+        <!-- Thống kê -->
+        <div class="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div class="flex items-center gap-4">
+                    <div class="flex h-12 w-12 items-center justify-center
+                        rounded-xl bg-blue-50 text-2xl">
+                        📚
+                    </div>
+
+                    <div>
+                        <p class="text-sm text-slate-500">Tổng thể loại</p>
+                        <p class="mt-1 text-2xl font-bold text-slate-800">
+                            @Model.Count()
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div class="flex items-center gap-4">
+                    <div class="flex h-12 w-12 items-center justify-center
+                        rounded-xl bg-indigo-50 text-2xl">
+                        🗂️
+                    </div>
+
+                    <div>
+                        <p class="text-sm text-slate-500">Đang quản lý</p>
+                        <p class="mt-1 text-2xl font-bold text-slate-800">
+                            Thể loại sách
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bảng dữ liệu -->
+        <div class="overflow-hidden rounded-2xl border border-slate-200
+            bg-white shadow-sm">
+
+            <!-- Thanh tìm kiếm -->
+            <div class="flex flex-col gap-4 border-b border-slate-100
+                p-5 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-800">
+                        Danh sách thể loại
+                    </h2>
+                    <p class="mt-1 text-sm text-slate-500">
+                        Danh sách thể loại hiện có trong hệ thống.
+                    </p>
+                </div>
+
+                <div class="relative w-full sm:max-w-xs">
+                    <input id="searchCategory"
+                           type="text"
+                           placeholder="Tìm tên thể loại..."
+                           class="w-full rounded-xl border border-slate-200
+                    bg-slate-50 px-4 py-3 text-sm outline-none
+                    transition focus:border-blue-500
+                    focus:bg-white focus:ring-4 focus:ring-blue-100" />
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-50 text-slate-500">
+                        <tr>
+                            <th class="whitespace-nowrap px-6 py-4 font-semibold">
+                                Mã thể loại
+                            </th>
+                            <th class="px-6 py-4 font-semibold">
+                                Tên thể loại
+                            </th>
+                            <th class="whitespace-nowrap px-6 py-4 text-right font-semibold">
+                                Thao tác
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="categoryTable"
+                           class="divide-y divide-slate-100">
+
+                        @foreach (var category in Model)
+                        {
+                            <tr class="category-row transition hover:bg-slate-50">
+
+                                <td class="whitespace-nowrap px-6 py-5">
+                                    <span class="rounded-lg bg-slate-100 px-3 py-1.5
+                                        font-medium text-slate-600">
+                                        #@category.CategoryId
+                                    </span>
+                                </td>
+
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="flex h-10 w-10 shrink-0
+                                            items-center justify-center
+                                            rounded-xl bg-blue-50
+                                            font-bold text-blue-600">
+                                            @(string.IsNullOrEmpty(category.CategoryName)
+                                                ? "?"
+                                                : category.CategoryName.Substring(0, 1).ToUpper())
+                                        </div>
+
+                                        <span class="category-name font-semibold
+                                            text-slate-800">
+                                            @category.CategoryName
+                                        </span>
+                                    </div>
+                                </td>
+
+                                <td class="whitespace-nowrap px-6 py-5">
+                                    <div class="flex justify-end gap-2">
+
+                                        <a asp-action="EditCategory"
+                                               asp-route-id="@category.CategoryId"
+                                               class="rounded-lg border border-blue-100
+                                            bg-blue-50 px-4 py-2
+                                            font-medium text-blue-600
+                                            transition hover:bg-blue-100">
+                                            Sửa
+                                        </a>
+
+                                        <form asp-action="DeleteCategory"
+                                              method="post"
+                                              onsubmit="return confirm('Bạn có chắc muốn xóa thể loại này không?');">
+                                            @Html.AntiForgeryToken()
+
+                                            <input type="hidden" name="id"
+                                                   value="@category.CategoryId" />
+
+                                            <button type="submit"
+                                                    class="rounded-lg border border-red-100
+                                                bg-red-50 px-4 py-2
+                                                font-medium text-red-600
+                                                transition hover:bg-red-100">
+                                                Xóa
+                                            </button>
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+                <!-- Không có dữ liệu tìm kiếm -->
+                <div id="noResults"
+                     class="hidden px-6 py-12 text-center">
+                    <div class="mb-3 text-4xl">🔎</div>
+                    <p class="font-semibold text-slate-700">
+                        Không tìm thấy thể loại
+                    </p>
+                    <p class="mt-1 text-sm text-slate-400">
+                        Thử nhập một tên thể loại khác.
+                    </p>
+                </div>
+
+                @if (!Model.Any())
+                {
+                    <div class="px-6 py-12 text-center">
+                        <div class="mb-3 text-4xl">📚</div>
+                        <p class="font-semibold text-slate-700">
+                            Chưa có thể loại nào
+                        </p>
+                        <p class="mt-1 text-sm text-slate-400">
+                            Bấm "Thêm thể loại" để bắt đầu.
+                        </p>
+                    </div>
+                }
+
+            </div>
+
+            <!-- Chân bảng -->
+            <div class="border-t border-slate-100 bg-slate-50
+                px-6 py-4 text-sm text-slate-500">
+                Tổng cộng <span class="font-semibold text-slate-700">@Model.Count()</span>
+                thể loại
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const searchInput = document.getElementById("searchCategory");
+        const rows = document.querySelectorAll(".category-row");
+        const noResults = document.getElementById("noResults");
+
+        searchInput.addEventListener("input", function () {
+            const keyword = this.value.toLowerCase().trim();
+            let count = 0;
+
+            rows.forEach(function (row) {
+                const name = row.querySelector(".category-name")
+                                .textContent.toLowerCase();
+
+                if (name.includes(keyword)) {
+                    row.classList.remove("hidden");
+                    count++;
+                } else {
+                    row.classList.add("hidden");
+                }
+            });
+
+            noResults.classList.toggle("hidden", count > 0);
+        });
+    </script>
+}

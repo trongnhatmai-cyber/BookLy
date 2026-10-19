@@ -1,0 +1,124 @@
+﻿
+@model BookLy_Project.Models.Book
+
+@{
+    ViewData["Title"] = "Thêm sách";
+}
+
+<div class="min-h-screen bg-slate-50 p-6 md:p-10">
+    <div class="mx-auto max-w-5xl">
+
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-slate-800">
+                Thêm sách mới
+            </h1>
+            <p class="mt-2 text-sm text-slate-500">
+                Nhập thông tin sách vào thư viện BookLy.
+            </p>
+        </div>
+
+        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+            <div class="border-b border-slate-100 px-6 py-5">
+                <h2 class="font-semibold text-slate-800">
+                    Thông tin sách
+                </h2>
+            </div>
+
+            <form asp-action="CreateBook" method="post" class="p-6 md:p-8">
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="ModelOnly"
+                     class="mb-4 text-sm text-red-500"></div>
+
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+
+                    <div class="md:col-span-2">
+                        <label asp-for="Title"
+                               class="mb-2 block text-sm font-semibold text-slate-700">
+                            Tên sách
+                        </label>
+                        <input asp-for="Title"
+                               placeholder="Nhập tên sách..."
+                               class="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100" />
+                    </div>
+
+                    <div>
+                        <label asp-for="Author"
+                               class="mb-2 block text-sm font-semibold text-slate-700">
+                            Tác giả
+                        </label>
+                        <input asp-for="Author"
+                               placeholder="Nhập tên tác giả..."
+                               class="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100" />
+                    </div>
+
+                    <div>
+                        <label asp-for="CategoryId"
+                               class="mb-2 block text-sm font-semibold text-slate-700">
+                            Thể loại
+                        </label>
+                        <select asp-for="CategoryId"
+                                asp-items="ViewBag.Categories"
+                                class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100">
+                            <option value="">-- Chọn thể loại --</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label asp-for="TotalQuantity"
+                               class="mb-2 block text-sm font-semibold text-slate-700">
+                            Tổng số lượng
+                        </label>
+                        <input asp-for="TotalQuantity" type="number" min="0"
+                               value="0"
+                               class="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100" />
+                    </div>
+
+                    <div>
+                        <label asp-for="AvailableQuantity"
+                               class="mb-2 block text-sm font-semibold text-slate-700">
+                            Số lượng còn
+                        </label>
+                        <input asp-for="AvailableQuantity" type="number" min="0"
+                               value="0"
+                               class="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100" />
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <label asp-for="ImageUrl"
+                               class="mb-2 block text-sm font-semibold text-slate-700">
+                            Đường dẫn ảnh
+                        </label>
+                        <input asp-for="ImageUrl"
+                               placeholder="Nhập URL ảnh sách..."
+                               class="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100" />
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <label asp-for="Description"
+                               class="mb-2 block text-sm font-semibold text-slate-700">
+                            Mô tả
+                        </label>
+                        <textarea asp-for="Description" rows="4"
+                                  placeholder="Nhập mô tả sách..."
+                                  class="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100"></textarea>
+                    </div>
+
+                </div>
+
+                <div class="mt-8 flex justify-end gap-3 border-t border-slate-100 pt-6">
+                    <a asp-action="Index"
+                           class="rounded-xl border border-slate-200 px-6 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50">
+                        Hủy
+                    </a>
+
+                    <button type="submit"
+                            class="rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700">
+                        + Thêm sách
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

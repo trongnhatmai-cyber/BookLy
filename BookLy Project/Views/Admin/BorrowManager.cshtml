@@ -1,0 +1,274 @@
+﻿
+@model IEnumerable<BookLy_Project.Models.BorrowRequest>
+
+@{
+    ViewData["Title"] = "Quản lý mượn trả";
+}
+
+<div class="min-h-screen bg-slate-50 p-6 md:p-8">
+    <div class="mx-auto max-w-7xl">
+
+        <!-- Tiêu đề -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-slate-800">
+                Quản lý mượn trả
+            </h1>
+            <p class="mt-2 text-sm text-slate-500">
+                Theo dõi yêu cầu mượn sách và tình trạng trả sách của sinh viên.
+            </p>
+        </div>
+
+        <!-- Thông báo -->
+        @if (TempData["Success"] != null)
+        {
+            <div class="mb-5 rounded-xl bg-green-50 p-4 text-sm text-green-700">
+                @TempData["Success"]
+            </div>
+        }
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="mb-5 rounded-xl bg-red-50 p-4 text-sm text-red-600">
+                @TempData["Error"]
+            </div>
+        }
+
+        <!-- Thống kê -->
+        <div class="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p class="text-sm text-slate-500">Tổng yêu cầu</p>
+                <p class="mt-2 text-3xl font-bold text-slate-800">
+                    @Model.Count()
+                </p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p class="text-sm text-slate-500">Chờ duyệt</p>
+                <p class="mt-2 text-3xl font-bold text-amber-500">
+                    @Model.Count(r => r.Status == "Pending")
+                </p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p class="text-sm text-slate-500">Đang mượn</p>
+                <p class="mt-2 text-3xl font-bold text-blue-600">
+                    @Model.Count(r => r.Status == "Approved"
+                        || r.Status == "Overdue")
+                </p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p class="text-sm text-slate-500">Đã trả</p>
+                <p class="mt-2 text-3xl font-bold text-green-600">
+                    @Model.Count(r => r.Status == "Returned")
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Bảng yêu cầu -->
+        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+            <div class="flex flex-col gap-4 border-b border-slate-100
+                p-5 sm:flex-row sm:items-center sm:justify-between">
+
+                <div>
+                    <h2 class="text-lg font-bold text-slate-800">
+                        Danh sách yêu cầu mượn sách
+                    </h2>
+                    <p class="mt-1 text-sm text-slate-500">
+                        Xem thông tin và cập nhật trạng thái mượn trả.
+                    </p>
+                </div>
+
+                <a asp-controller="Admin"
+                       asp-action="CreateBorrow"
+                       class="shrink-0 rounded-xl bg-blue-600 px-5 py-3
+                    text-sm font-semibold text-white hover:bg-blue-700">
+                    + Tạo đơn mượn tại thư viện
+                </a>
+
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-50 text-slate-500">
+                        <tr>
+                            <th class="whitespace-nowrap px-5 py-4 font-semibold">
+                                Mã yêu cầu
+                            </th>
+                            <th class="whitespace-nowrap px-5 py-4 font-semibold">
+                                Sinh viên
+                            </th>
+                            <th class="px-5 py-4 font-semibold">
+                                Sách mượn
+                            </th>
+                            <th class="whitespace-nowrap px-5 py-4 font-semibold">
+                                Ngày yêu cầu
+                            </th>
+                            <th class="whitespace-nowrap px-5 py-4 font-semibold">
+                                Hạn trả
+                            </th>
+                            <th class="px-5 py-4 font-semibold">
+                                Trạng thái
+                            </th>
+                            <th class="whitespace-nowrap px-5 py-4 text-right font-semibold">
+                                Thao tác
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="divide-y divide-slate-100">
+
+                        @if (!Model.Any())
+                        {
+                            <tr>
+                                <td colspan="7"
+                                    class="px-5 py-12 text-center text-slate-400">
+                                    Chưa có yêu cầu mượn sách nào.
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (var request in Model)
+                            {
+                                var overdue = (request.Status == "Approved"
+                                    || request.Status == "Overdue")
+                                    && request.DueDate.HasValue
+                                    && request.DueDate.Value < DateTime.Now;
+
+                                <tr class="transition hover:bg-slate-50">
+
+                                    <td class="whitespace-nowrap px-5 py-5 font-semibold text-slate-700">
+                                        #@request.BorrowId
+                                    </td>
+
+                                    <td class="px-5 py-5">
+                                        <div class="font-medium text-slate-800">
+                                            @(request.User?.FullName ?? "Không có thông tin")
+                                        </div>
+                                        <div class="mt-1 text-xs text-slate-400">
+                                            ID: @(request.UserId?.ToString() ?? "-")
+                                        </div>
+                                    </td>
+
+                                    <td class="min-w-48 px-5 py-5">
+                                        @foreach (var detail in request.BorrowDetails)
+                                        {
+                                            <div class="mb-1 text-slate-700">
+                                                @(detail.Book?.Title ?? "Sách không tồn tại")
+                                                <span class="text-slate-400">
+                                                    × @detail.Quantity
+                                                </span>
+                                            </div>
+                                        }
+                                    </td>
+
+                                    <td class="whitespace-nowrap px-5 py-5 text-slate-600">
+                                        @(request.RequestedAt?.ToString("dd/MM/yyyy") ?? "Chưa có")
+                                    </td>
+
+                                    <td class="whitespace-nowrap px-5 py-5 text-slate-600">
+                                        @(request.DueDate?.ToString("dd/MM/yyyy") ?? "Chưa có")
+                                    </td>
+
+                                    <td class="whitespace-nowrap px-5 py-5">
+                                        @if (request.Status == "Pending")
+                                        {
+                                            <span class="rounded-full bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-700">
+                                                Chờ duyệt
+                                            </span>
+                                        }
+                                        else if (overdue || request.Status == "Overdue")
+                                        {
+                                            <span class="rounded-full bg-red-50 px-3 py-1.5 text-xs font-semibold text-red-600">
+                                                Quá hạn
+                                            </span>
+                                        }
+                                        else if (request.Status == "Approved")
+                                        {
+                                            <span class="rounded-full bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-700">
+                                                Đang mượn
+                                            </span>
+                                        }
+                                        else if (request.Status == "Returned")
+                                        {
+                                            <span class="rounded-full bg-green-50 px-3 py-1.5 text-xs font-semibold text-green-700">
+                                                Đã trả
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">
+                                                @request.Status
+                                            </span>
+                                        }
+                                    </td>
+
+                                    <td class="whitespace-nowrap px-5 py-5">
+                                        <div class="flex justify-end gap-2">
+
+                                            @if (request.Status == "Pending")
+                                            {
+                                                <form asp-action="ApproveBorrow"
+                                                      method="post"
+                                                      onsubmit="return confirm('Bạn có muốn duyệt yêu cầu này không?');">
+                                                    @Html.AntiForgeryToken()
+                                                    <input type="hidden" name="id" value="@request.BorrowId" />
+
+                                                    <button type="submit"
+                                                            class="rounded-lg bg-blue-600 px-3 py-2 text-xs font-semibold text-white hover:bg-blue-700">
+                                                        Duyệt
+                                                    </button>
+                                                </form>
+
+                                                <form asp-action="RejectBorrow"
+                                                      method="post"
+                                                      onsubmit="return confirm('Bạn có chắc muốn từ chối yêu cầu này không?');">
+                                                    @Html.AntiForgeryToken()
+                                                    <input type="hidden" name="id" value="@request.BorrowId" />
+
+                                                    <button type="submit"
+                                                            class="rounded-lg bg-red-50 px-3 py-2 text-xs font-semibold text-red-700 hover:bg-red-100">
+                                                        Từ chối
+                                                    </button>
+                                                </form>
+                                            }
+
+                                            @if (request.Status == "Approved"
+                                                                                            || request.Status == "Overdue")
+                                            {
+                                                <form asp-action="ReturnBorrow"
+                                                      method="post"
+                                                      onsubmit="return confirm('Xác nhận sinh viên đã trả sách?');">
+                                                    @Html.AntiForgeryToken()
+                                                    <input type="hidden" name="id"
+                                                           value="@request.BorrowId" />
+
+                                                    <button type="submit"
+                                                            class="rounded-lg bg-green-50 px-3 py-2 text-xs font-semibold text-green-700 hover:bg-green-100">
+                                                        Đã trả
+                                                    </button>
+                                                </form>
+                                            }
+
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="border-t border-slate-100 bg-slate-50 px-6 py-4 text-sm text-slate-500">
+                Tổng cộng @Model.Count() yêu cầu mượn sách
+            </div>
+
+        </div>
+    </div>
+</div>

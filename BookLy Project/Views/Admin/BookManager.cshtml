@@ -1,0 +1,540 @@
+﻿@model IEnumerable<BookLy_Project.Models.Book>
+
+@{
+    ViewData["Title"] = "Quản lý sách";
+}
+
+<style>
+    .book-page {
+        min-height: 100vh;
+        padding: 28px;
+        background: #f4f7fc;
+        color: #1d2d46;
+        font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+        .book-page * {
+            box-sizing: border-box;
+        }
+
+    .book-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 25px;
+    }
+
+        .book-header h1 {
+            margin: 0 0 7px;
+            font: bold 34px Georgia, serif;
+        }
+
+        .book-header p {
+            margin: 0;
+            color: #7889a1;
+            font-size: 14px;
+        }
+
+    .book-page .btn {
+        display: inline-block;
+        padding: 9px 14px;
+        border: 1px solid #dce6f2;
+        border-radius: 10px;
+        background: white;
+        color: #243650;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all .2s ease;
+    }
+
+        .book-page .btn:hover {
+            background: #f0f6ff;
+            border-color: #8bb6f5;
+            transform: translateY(-1px);
+        }
+
+    .book-page .btn-primary {
+        color: white;
+        background: #1768d8;
+        border-color: #1768d8;
+        padding: 12px 18px;
+    }
+
+        .book-page .btn-primary:hover {
+            color: white;
+            background: #0f56b9;
+        }
+
+    /* Khu vực tìm kiếm và lọc */
+    .book-filters {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        padding: 18px;
+        margin-bottom: 20px;
+        border: 1px solid #e1e9f3;
+        border-radius: 16px;
+        background: white;
+    }
+
+    .book-filter label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .book-filter input,
+    .book-filter select {
+        width: 100%;
+        height: 42px;
+        padding: 0 12px;
+        border: 1px solid #dce6f2;
+        border-radius: 10px;
+        background: white;
+        color: #243650;
+        outline: none;
+    }
+
+        .book-filter input:focus,
+        .book-filter select:focus {
+            border-color: #6ea4f3;
+            box-shadow: 0 0 0 3px #e7f0ff;
+        }
+
+    /* Bảng sách */
+    .book-table-card {
+        overflow-x: auto;
+        border: 1px solid #dce6f2;
+        border-radius: 16px;
+        background: white;
+    }
+
+    .book-table {
+        width: 100%;
+        min-width: 720px;
+        border-collapse: collapse;
+    }
+
+        .book-table thead {
+            background: #f0f5fc;
+            color: #687c98;
+        }
+
+        .book-table th {
+            padding: 15px;
+            text-align: left;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .book-table td {
+            padding: 15px;
+            border-top: 1px solid #e9eef5;
+            font-size: 14px;
+        }
+
+        .book-table tbody tr:hover td {
+            background: #f8fbff;
+        }
+
+    .book-name {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: 700;
+    }
+
+    .book-author {
+        color: #8190a7;
+        font-size: 13px;
+    }
+
+    /* Trạng thái sách */
+    .book-status {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .status-available {
+        color: #138653;
+        background: #e2f7ed;
+    }
+
+    .status-unavailable {
+        color: #b45309;
+        background: #fff0d8;
+    }
+
+    .status-hidden {
+        color: #667085;
+        background: #edf0f5;
+    }
+
+    .book-actions {
+        display: flex;
+        gap: 7px;
+    }
+
+        .book-actions .btn {
+            padding: 7px 12px;
+        }
+
+        .book-actions .btn-delete:hover {
+            color: #b42318;
+            background: #fff5f4;
+        }
+
+    /* Phân trang */
+    .book-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-top: 16px;
+        color: #788aa3;
+        font-size: 13px;
+    }
+
+    .book-pagination {
+        display: flex;
+        gap: 8px;
+    }
+
+        .book-pagination button:disabled {
+            opacity: .45;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+    .book-empty {
+        padding: 30px !important;
+        text-align: center;
+        color: #788aa3;
+    }
+
+    @@media (max-width: 768px) {
+        .book-page {
+            padding: 18px 12px;
+        }
+
+        .book-header {
+            align-items: flex-start;
+        }
+
+            .book-header h1 {
+                font-size: 27px;
+            }
+
+        .book-filters {
+            grid-template-columns: 1fr;
+        }
+
+        .book-footer {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+    }
+</style>
+
+<div class="book-page">
+
+    <!-- TIÊU ĐỀ -->
+    <div class="book-header">
+        <div>
+            <h1>Quản lý sách</h1>
+            <p>Cập nhật danh mục và theo dõi số lượng sách.</p>
+        </div>
+
+        <!-- Chuyển đến trang thêm sách -->
+        <a asp-controller="Admin"
+               asp-action="CreateBook"
+               class="btn btn-primary">
+            + Thêm sách
+        </a>
+    </div>
+
+    <!-- TÌM KIẾM VÀ LỌC -->
+    <div class="book-filters">
+        <div class="book-filter">
+            <label for="searchInput">Tìm sách</label>
+            <input id="searchInput"
+                   type="text"
+                   placeholder="Tên sách, tác giả..." />
+        </div>
+
+        <div class="book-filter">
+            <label for="categoryFilter">Thể loại</label>
+            <select id="categoryFilter">
+                <option value="">Tất cả thể loại</option>
+
+                <!-- Lấy danh sách thể loại từ sách trong Model -->
+                @foreach (var category in Model
+                                    .Where(b => b.Category != null)
+                                    .Select(b => b.Category.CategoryName)
+                                    .Distinct()
+                                    .OrderBy(name => name))
+                {
+                    <option value="@category">@category</option>
+                }
+            </select>
+        </div>
+
+        <div class="book-filter">
+            <label for="statusFilter">Trạng thái</label>
+            <select id="statusFilter">
+                <option value="">Mọi trạng thái</option>
+                <option value="available">Còn sách</option>
+                <option value="unavailable">Hết sách</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- BẢNG DANH SÁCH -->
+    <div class="book-table-card">
+        <table class="book-table">
+            <thead>
+                <tr>
+                    <th>Sách / tác giả</th>
+                    <th>Thể loại</th>
+                    <th>Số lượng</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+
+            
+            <tbody id="bookTableBody">
+                @foreach (var book in Model)
+                {
+                    // AvailableQuantity bằng 0 hoặc null thì xem là hết sách
+                    var isAvailable = (book.AvailableQuantity ?? 0) > 0;
+
+                    var statusText = isAvailable ? "Còn sách" : "Hết sách";
+
+                    var statusClass = isAvailable
+                        ? "status-available"
+                        : "status-unavailable";
+
+                    <tr class="book-row"
+                        data-title="@(book.Title ?? "")"
+                        data-author="@(book.Author ?? "")"
+                        data-category="@(book.Category?.CategoryName ?? "")"
+                        data-status="@(isAvailable ? "available" : "unavailable")">
+
+                        <!-- Tên sách và tác giả -->
+                        <td>
+                            <span class="book-name">
+                                @(book.Title ?? "Chưa có tên")
+                            </span>
+
+                            <span class="book-author">
+                                @(book.Author ?? "Chưa có tác giả")
+                            </span>
+                        </td>
+
+                        <!-- Thể loại -->
+                        <td>
+                            @(book.Category?.CategoryName ?? "Chưa phân loại")
+                        </td>
+
+                        <!-- Số lượng: còn lại / tổng số -->
+                        <td>
+                            @(book.AvailableQuantity ?? 0)
+                            /
+                            @(book.TotalQuantity ?? 0)
+                        </td>
+
+                        <!-- Trạng thái -->
+                        <td>
+                            <span class="book-status @statusClass">
+                                @statusText
+                            </span>
+                        </td>
+
+                        <!-- Các nút chỉ điều hướng sang trang khác -->
+                        <td>
+                            <div class="book-actions">
+                                <a asp-controller="Admin"
+                                       asp-action="EditBook"
+                                       asp-route-id="@book.BookId"
+                                       class="btn">
+                                    Sửa
+                                </a>
+
+                                <form asp-action="DeleteBook" method="post"
+                                      onsubmit="return confirm('Bạn có chắc muốn xóa sách này không?');">
+
+                                    @Html.AntiForgeryToken()
+
+                                    <input type="hidden" name="id" value="@book.BookId" />
+
+                                    <button type="submit"
+                                            class="rounded-lg bg-red-100 px-3 py-2 text-sm
+                                        font-medium text-red-600 hover:bg-red-200">
+                                        Xóa
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PHÂN TRANG PHÍA TRÌNH DUYỆT -->
+    <div class="book-footer">
+        <span id="pageInfo"></span>
+
+        <div class="book-pagination">
+            <button type="button" class="btn" id="prevBtn">
+                ← Trước
+            </button>
+
+            <button type="button" class="btn" id="nextBtn">
+                Sau →
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Số dòng hiển thị trên một trang
+    const PAGE_SIZE = 5;
+
+    let currentPage = 1;
+
+    const searchInput = document.getElementById("searchInput");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const statusFilter = document.getElementById("statusFilter");
+    const tableBody = document.getElementById("bookTableBody");
+
+    // Lấy các dòng sách do Razor tạo ra từ Model
+    const allRows = Array.from(
+        tableBody.querySelectorAll(".book-row")
+    );
+
+    // TÌM KIẾM VÀ LỌC
+    function filterBooks() {
+        const keyword = searchInput.value
+            .trim()
+            .toLocaleLowerCase("vi");
+
+        const category = categoryFilter.value;
+        const status = statusFilter.value;
+
+        return allRows.filter(row => {
+            const title = row.dataset.title.toLocaleLowerCase("vi");
+            const author = row.dataset.author.toLocaleLowerCase("vi");
+
+            const matchKeyword =
+                title.includes(keyword) || author.includes(keyword);
+
+            const matchCategory =
+                !category || row.dataset.category === category;
+
+            const matchStatus =
+                !status || row.dataset.status === status;
+
+            return matchKeyword && matchCategory && matchStatus;
+        });
+    }
+
+    // HIỂN THỊ VÀ PHÂN TRANG
+    function renderBooks() {
+        const filteredRows = filterBooks();
+
+        const totalPages = Math.max(
+            1,
+            Math.ceil(filteredRows.length / PAGE_SIZE)
+        );
+
+        currentPage = Math.min(currentPage, totalPages);
+
+        const startIndex = (currentPage - 1) * PAGE_SIZE;
+        const endIndex = startIndex + PAGE_SIZE;
+
+        // Ẩn tất cả dòng trước khi hiển thị trang hiện tại
+        allRows.forEach(row => {
+            row.style.display = "none";
+        });
+
+        // Hiển thị những dòng thuộc trang hiện tại
+        filteredRows.slice(startIndex, endIndex).forEach(row => {
+            row.style.display = "";
+        });
+
+        // Tạo hoặc xóa thông báo không tìm thấy sách
+        let emptyRow = document.getElementById("emptyRow");
+
+        if (filteredRows.length === 0) {
+            if (!emptyRow) {
+                emptyRow = document.createElement("tr");
+                emptyRow.id = "emptyRow";
+                emptyRow.innerHTML = `
+                    <td colspan="5" class="book-empty">
+                        Không tìm thấy sách phù hợp.
+                    </td>
+                `;
+                tableBody.appendChild(emptyRow);
+            }
+        } else if (emptyRow) {
+            emptyRow.remove();
+        }
+
+        document.getElementById("pageInfo").textContent =
+            `${filteredRows.length} sách · Trang ${currentPage}/${totalPages}`;
+
+        document.getElementById("prevBtn").disabled =
+            currentPage <= 1;
+
+        document.getElementById("nextBtn").disabled =
+            currentPage >= totalPages;
+    }
+
+    // SỰ KIỆN TÌM KIẾM VÀ LỌC
+    searchInput.addEventListener("input", () => {
+        currentPage = 1;
+        renderBooks();
+    });
+
+    categoryFilter.addEventListener("change", () => {
+        currentPage = 1;
+        renderBooks();
+    });
+
+    statusFilter.addEventListener("change", () => {
+        currentPage = 1;
+        renderBooks();
+    });
+
+    // SỰ KIỆN PHÂN TRANG
+    document.getElementById("prevBtn").addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            renderBooks();
+        }
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+        const totalPages = Math.max(
+            1,
+            Math.ceil(filterBooks().length / PAGE_SIZE)
+        );
+
+        if (currentPage < totalPages) {
+            currentPage++;
+            renderBooks();
+        }
+    });
+
+    // HIỂN THỊ LẦN ĐẦU
+    renderBooks();
+</script>

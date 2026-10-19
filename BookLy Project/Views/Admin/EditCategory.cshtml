@@ -1,0 +1,51 @@
+﻿```cshtml
+@model BookLy_Project.Models.Category
+
+@{
+    ViewData["Title"] = "Sửa thể loại";
+}
+
+<div class="min-h-screen bg-slate-50 p-6 md:p-10">
+    <div class="mx-auto max-w-2xl">
+
+        <h1 class="mb-2 text-3xl font-bold text-slate-800">
+            Sửa thể loại
+        </h1>
+
+        <p class="mb-8 text-sm text-slate-500">
+            Cập nhật tên thể loại sách.
+        </p>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <form asp-action="EditCategory" method="post">
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" asp-for="CategoryId" />
+
+                <label asp-for="CategoryName"
+                       class="mb-2 block text-sm font-semibold text-slate-700">
+                    Tên thể loại
+                </label>
+
+                <input asp-for="CategoryName"
+                       class="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100" />
+
+                <span asp-validation-for="CategoryName"
+                      class="mt-2 block text-sm text-red-500"></span>
+
+                <div class="mt-6 flex justify-end gap-3">
+                    <a asp-action="CategoryManager"
+                           class="rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50">
+                        Hủy
+                    </a>
+
+                    <button type="submit"
+                            class="rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700">
+                        Lưu thay đổi
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+```

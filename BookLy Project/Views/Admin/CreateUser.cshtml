@@ -1,0 +1,119 @@
+﻿
+@model BookLy_Project.Models.User
+
+@{
+    ViewData["Title"] = "Tạo tài khoản";
+}
+
+<div class="min-h-screen bg-slate-50 p-6 md:p-8">
+    <div class="mx-auto max-w-3xl">
+
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-slate-800">
+                Tạo tài khoản mới
+            </h1>
+            <p class="mt-2 text-sm text-slate-500">
+                Admin tạo tài khoản cho học sinh hoặc quản trị viên.
+            </p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+            <div class="border-b border-slate-100 px-6 py-5">
+                <h2 class="font-semibold text-slate-800">
+                    Thông tin tài khoản
+                </h2>
+            </div>
+
+            <form asp-action="CreateUser" method="post" class="p-6">
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="ModelOnly"
+                     class="mb-4 text-sm text-red-500"></div>
+
+                <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+
+                    <div>
+                        <label asp-for="FullName"
+                               class="mb-2 block text-sm font-semibold text-slate-700">
+                            Họ và tên
+                        </label>
+                        <input asp-for="FullName" required
+                               placeholder="Nhập họ tên..."
+                               class="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100" />
+                    </div>
+
+                    <div>
+                        <label asp-for="Username"
+                               class="mb-2 block text-sm font-semibold text-slate-700">
+                            Tên đăng nhập
+                        </label>
+                        <input asp-for="Username" required
+                               placeholder="Nhập tên đăng nhập..."
+                               class="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100" />
+                        <span asp-validation-for="Username"
+                              class="mt-1 block text-sm text-red-500"></span>
+                    </div>
+
+                    <div>
+                        <label asp-for="Passwordd"
+                               class="mb-2 block text-sm font-semibold text-slate-700">
+                            Mật khẩu
+                        </label>
+                        <input asp-for="Passwordd" type="password"
+                               name="Passwordd" required
+                               placeholder="Nhập mật khẩu..."
+                               class="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100" />
+                        <span asp-validation-for="Passwordd"
+                              class="mt-1 block text-sm text-red-500"></span>
+                    </div>
+
+                    <div>
+                        <label asp-for="Email"
+                               class="mb-2 block text-sm font-semibold text-slate-700">
+                            Email
+                        </label>
+                        <input asp-for="Email" type="email"
+                               placeholder="example@email.com"
+                               class="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100" />
+                    </div>
+
+                    <div>
+                        <label asp-for="StudentCode"
+                               class="mb-2 block text-sm font-semibold text-slate-700">
+                            Mã sinh viên
+                        </label>
+                        <input asp-for="StudentCode"
+                               placeholder="Nhập mã sinh viên..."
+                               class="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100" />
+                    </div>
+
+                    <div>
+                        <label asp-for="Role"
+                               class="mb-2 block text-sm font-semibold text-slate-700">
+                            Vai trò
+                        </label>
+                        <select asp-for="Role" required
+                                class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100">
+                            <option value="Student">Học sinh</option>
+                            <option value="Admin">Admin</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="mt-8 flex justify-end gap-3 border-t border-slate-100 pt-6">
+                    <a asp-action="UserManager"
+                           class="rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50">
+                        Hủy
+                    </a>
+
+                    <button type="submit"
+                            class="rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700">
+                        + Tạo tài khoản
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

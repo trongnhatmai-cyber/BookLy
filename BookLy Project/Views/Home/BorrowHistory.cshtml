@@ -1,0 +1,165 @@
+﻿@model IEnumerable<BookLy_Project.Models.BorrowRequest>
+
+@{
+    ViewData["Title"] = "Lịch sử mượn sách";
+}
+
+<div class="min-h-screen bg-slate-50 px-6 py-8">
+    <div class="mx-auto max-w-6xl">
+
+        <h1 class="mb-2 text-3xl font-bold text-slate-800">
+            Lịch sử mượn sách
+        </h1>
+
+        <p class="mb-8 text-slate-500">
+            Theo dõi các phiếu mượn và tình trạng trả sách của bạn.
+        </p>
+
+        @if (!Model.Any())
+        {
+            <div class="rounded-2xl bg-white p-10 text-center shadow-sm">
+                <div class="mb-4 text-5xl">📚</div>
+
+                <h2 class="mb-3 text-xl font-semibold text-slate-700">
+                    Bạn chưa có lịch sử mượn sách
+                </h2>
+
+                <p class="mb-6 text-slate-500">
+                    Hãy khám phá thư viện và chọn cuốn sách bạn muốn đọc.
+                </p>
+
+                <a asp-controller="Book"
+                   asp-action="Index"
+                   class="rounded-lg bg-blue-600 px-5 py-3 text-white hover:bg-blue-700">
+                    Khám phá sách
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="space-y-5">
+
+                @foreach (var request in Model)
+                {
+                    var detail = request.BorrowDetails.FirstOrDefault();
+                    var book = detail?.Book;
+
+                    <div class="rounded-2xl bg-white p-5 shadow-sm">
+
+                        <div class="flex flex-col gap-5 sm:flex-row">
+
+                            @if (book != null)
+                            {
+                                <img src="@book.ImageUrl"
+                                     alt="@book.Title"
+                                     class="h-40 w-28 rounded-lg object-cover"
+                                     onerror="this.style.display='none'" />
+
+                                <div class="flex-1">
+
+                                    <h2 class="mb-2 text-xl font-bold text-slate-800">
+                                        @(book.Title ?? "Không có tên sách")
+                                    </h2>
+
+                                    <p class="mb-1 text-slate-500">
+                                        Tác giả: @(book.Author ?? "Chưa cập nhật")
+                                    </p>
+
+                                    <p class="mb-1 text-slate-500">
+                                        Ngày yêu cầu: @request.RequestedAt
+                                    </p>
+
+                                    <p class="mb-3 text-slate-500">
+                                        Hạn trả:
+                                        @(request.DueDate?.ToString("dd/MM/yyyy") ?? "Chưa có")
+                                    </p>
+
+                                    @if (request.Status == "Pending")
+                                    {
+                                        <span class="rounded-full bg-yellow-100 px-3 py-1 text-sm text-yellow-700">
+                                            Chờ duyệt
+                                        </span>
+                                    }
+                                    else if (request.Status == "Approved")
+                                    {
+                                        <span class="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700">
+                                            Đang mượn
+                                        </span>
+                                    }
+                                    else if (request.Status == "Overdue")
+                                    {
+                                        <span class="rounded-full bg-red-100 px-3 py-1 text-sm text-red-700">
+                                            Quá hạn
+                                        </span>
+                                    }
+                                    else if (request.Status == "Returned")
+                                    {
+                                        <span class="rounded-full bg-green-100 px-3 py-1 text-sm text-green-700">
+                                            Đã trả
+                                        </span>
+                                    }
+                                    else if (request.Status == "Cancelled")
+                                    {
+                                        <span class="rounded-full bg-slate-200 px-3 py-1 text-sm text-slate-600">
+                                            Đã hủy
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-600">
+                                            @request.Status
+                                        </span>
+                                    }
+
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="flex-1">
+                                    <p class="font-semibold text-slate-700">
+                                        Phiếu mượn #@request.BorrowId
+                                    </p>
+
+                                    <p class="mt-2 text-slate-500">
+                                        Không tìm thấy thông tin sách của phiếu này.
+                                    </p>
+                                </div>
+                            }
+
+                            <div class="flex flex-col gap-2">
+                                <div class=" text-sm text-slate-400">
+                                Mã phiếu: #@request.BorrowId
+                                </div>
+
+                                @if (request.Status == "Pending")
+                                {
+                                    <form asp-controller="Home"
+                                          asp-action="CancelBorrow"
+                                          method="post"
+                                          onsubmit="return confirm('Bạn có chắc muốn thu hồi đơn mượn này không?');">
+
+                                        @Html.AntiForgeryToken()
+
+                                        <input type="hidden"
+                                               name="id"
+                                               value="@request.BorrowId" />
+
+                                        <button type="submit"
+                                                class="rounded-lg bg-red-50 px-4 py-2
+                                            text-sm font-semibold text-red-600
+                                            hover:bg-red-100">
+                                            Thu hồi đơn
+                                        </button>
+                                    </form>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                }
+
+            </div>
+        }
+
+    </div>
+</div>

@@ -1,0 +1,98 @@
+﻿```cshtml
+@{
+    ViewData["Title"] = "Tạo đơn mượn";
+}
+
+<div class="min-h-screen bg-slate-50 p-6 md:p-8">
+    <div class="mx-auto max-w-3xl">
+
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-slate-800">
+                Tạo đơn mượn tại thư viện
+            </h1>
+            <p class="mt-2 text-sm text-slate-500">
+                Nhập thông tin học sinh và sách được mượn tại quầy.
+            </p>
+        </div>
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="mb-5 rounded-xl bg-red-50 p-4 text-sm text-red-600">
+                @TempData["Error"]
+            </div>
+        }
+
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+            <div class="border-b border-slate-100 px-6 py-5">
+                <h2 class="font-semibold text-slate-800">
+                    Thông tin mượn sách
+                </h2>
+            </div>
+
+            <form asp-action="CreateBorrow" method="post" class="space-y-6 p-6">
+                @Html.AntiForgeryToken()
+
+                <!-- Học sinh -->
+                <div>
+                    <label class="mb-2 block text-sm font-semibold text-slate-700">
+                        Học sinh
+                    </label>
+
+                    <select name="userId" asp-items="ViewBag.Students"
+                            required
+                            class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100">
+                        <option value="">-- Chọn học sinh --</option>
+                    </select>
+                </div>
+
+                <!-- Sách -->
+                <div>
+                    <label class="mb-2 block text-sm font-semibold text-slate-700">
+                        Sách muốn mượn
+                    </label>
+
+                    <select name="bookId" asp-items="ViewBag.Books"
+                            required
+                            class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100">
+                        <option value="">-- Chọn sách --</option>
+                    </select>
+                </div>
+
+                <!-- Số lượng -->
+                <div>
+                    <label class="mb-2 block text-sm font-semibold text-slate-700">
+                        Số lượng
+                    </label>
+
+                    <input type="number" name="quantity"
+                           min="1" value="1" required
+                           class="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100" />
+                </div>
+
+                <!-- Thông tin -->
+                <div class="rounded-xl bg-blue-50 p-4 text-sm text-blue-700">
+                    <p class="font-semibold">Lưu ý</p>
+                    <p class="mt-1">
+                        Đơn sẽ được xác nhận mượn ngay sau khi tạo.
+                        Hạn trả mặc định là 14 ngày kể từ ngày mượn.
+                    </p>
+                </div>
+
+                <!-- Nút -->
+                <div class="flex justify-end gap-3 border-t border-slate-100 pt-6">
+                    <a asp-action="BorrowManager"
+                       class="rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50">
+                        Hủy
+                    </a>
+
+                    <button type="submit"
+                            class="rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700">
+                        Xác nhận mượn
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+```

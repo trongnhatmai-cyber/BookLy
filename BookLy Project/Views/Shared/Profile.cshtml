@@ -1,0 +1,115 @@
+﻿@model BookLy_Project.Models.User
+
+@{
+    ViewData["Title"] = "Hồ sơ người dùng";
+    if(Model.Role == "Admin")
+    {
+        Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+    }
+}
+
+<div class="min-h-screen bg-slate-50 p-6 md:p-10">
+    <div class="mx-auto max-w-4xl">
+
+        <!-- Tiêu đề -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-slate-800">
+                Hồ sơ người dùng
+            </h1>
+            <p class="mt-2 text-slate-500">
+                Xem thông tin tài khoản của bạn.
+            </p>
+        </div>
+
+        <!-- Thông tin tài khoản -->
+        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+            <!-- Phần đầu -->
+            <div class="flex items-center gap-5 border-b border-slate-100 p-6">
+                <div class="flex h-20 w-20 items-center justify-center
+                    rounded-full bg-blue-100 text-3xl font-bold text-blue-600">
+                    @(string.IsNullOrEmpty(Model.FullName)
+                        ? "U"
+                        : Model.FullName.Substring(0, 1).ToUpper())
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800">
+                        @Model.FullName
+                    </h2>
+
+                    <p class="mt-1 text-sm text-slate-500">
+                        @Model.Username
+                    </p>
+
+                    <span class="mt-2 inline-block rounded-full bg-blue-50
+                        px-3 py-1 text-xs font-semibold text-blue-600">
+                        @Model.Role
+                    </span>
+                </div>
+            </div>
+
+            <!-- Chi tiết -->
+            <div class="grid grid-cols-1 gap-6 p-6 md:grid-cols-2">
+
+                <div>
+                    <p class="mb-2 text-sm text-slate-500">Họ và tên</p>
+                    <p class="font-semibold text-slate-800">
+                        @Model.FullName
+                    </p>
+                </div>
+
+                <div>
+                    <p class="mb-2 text-sm text-slate-500">Tên đăng nhập</p>
+                    <p class="font-semibold text-slate-800">
+                        @Model.Username
+                    </p>
+                </div>
+
+                <div>
+                    <p class="mb-2 text-sm text-slate-500">Email</p>
+                    <p class="font-semibold text-slate-800">
+                        @(string.IsNullOrEmpty(Model.Email)
+                            ? "Chưa cập nhật"
+                            : Model.Email)
+                    </p>
+                </div>
+
+                <div>
+                    <p class="mb-2 text-sm text-slate-500">Mã sinh viên</p>
+                    <p class="font-semibold text-slate-800">
+                        @(string.IsNullOrEmpty(Model.StudentCode)
+                            ? "Không áp dụng"
+                            : Model.StudentCode)
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Nút thao tác -->
+            <div class="flex justify-between border-t border-slate-100 p-6">
+                @if (Model.Role == "Admin")
+                {
+                    <a asp-controller="Admin"
+                    asp-action="ChangePassword"
+                    class="rounded-xl bg-blue-600 px-5 py-3 text-white">
+                        Đổi mật khẩu của tôi
+                    </a>
+                }else{
+                <a asp-controller="Home"
+                       asp-action="ChangePassword"
+                       class="rounded-xl bg-blue-600 px-5 py-3 text-white">
+                    Đổi mật khẩu của tôi
+                </a>
+                }
+                <a asp-action="Index"
+                       class="rounded-xl border border-slate-200 px-5 py-3
+                    text-sm font-semibold text-slate-600
+                    transition hover:bg-slate-50">
+                    Quay lại
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>

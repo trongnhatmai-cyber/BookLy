@@ -1,0 +1,634 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\NETC#1\\BookLy Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\home\\borrowhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\home\\borrowhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\home\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\home\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\admin\\borrowmanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\admin\\borrowmanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\admin\\bookmanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\admin\\bookmanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\models\\borrowrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:models\\borrowrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\models\\borrowdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:models\\borrowdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\home\\favorities.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\home\\favorities.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\models\\favorite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:models\\favorite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\admin\\usermanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\admin\\usermanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\admin\\bookedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\admin\\bookedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\shared\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\shared\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\shared\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\shared\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\admin\\createuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\admin\\createuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\admin\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\admin\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\admin\\createborrow.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\admin\\createborrow.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\admin\\categorymanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\admin\\categorymanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\admin\\createcategory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\admin\\createcategory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\admin\\editcategory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\admin\\editcategory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\admin\\createbook.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\admin\\createbook.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\admin\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\admin\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\bookly project.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:bookly project.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|e:\\netc#1\\bookly project\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\NETC#1\\BookLy Project\\Migrations\\20261004183919_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20261004183919_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 19,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BorrowHistory.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Home\\BorrowHistory.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\BorrowHistory.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Home\\BorrowHistory.cshtml",
+              "RelativeToolTip": "Views\\Home\\BorrowHistory.cshtml",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAQwIIAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-18T14:56:45.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Favorities.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Home\\Favorities.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Favorities.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Home\\Favorities.cshtml",
+              "RelativeToolTip": "Views\\Home\\Favorities.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-18T14:15:42.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Home\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Details.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Home\\Details.cshtml",
+              "RelativeToolTip": "Views\\Home\\Details.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAIAwwEgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-18T09:17:24.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-18T08:20:42.212Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ChangePassword.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Shared\\ChangePassword.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\ChangePassword.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Shared\\ChangePassword.cshtml",
+              "RelativeToolTip": "Views\\Shared\\ChangePassword.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-18T08:19:30.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Shared\\Profile.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\Profile.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Shared\\Profile.cshtml",
+              "RelativeToolTip": "Views\\Shared\\Profile.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAYAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-18T06:48:38.351Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "CreateUser.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\CreateUser.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\CreateUser.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\CreateUser.cshtml",
+              "RelativeToolTip": "Views\\Admin\\CreateUser.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-13T18:02:04.572Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UserManager.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\UserManager.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\UserManager.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\UserManager.cshtml",
+              "RelativeToolTip": "Views\\Admin\\UserManager.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAMwAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-13T18:00:27.635Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "CreateBorrow.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\CreateBorrow.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\CreateBorrow.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\CreateBorrow.cshtml",
+              "RelativeToolTip": "Views\\Admin\\CreateBorrow.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAEoAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-13T17:50:03.38Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BorrowManager.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\BorrowManager.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\BorrowManager.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\BorrowManager.cshtml",
+              "RelativeToolTip": "Views\\Admin\\BorrowManager.cshtml",
+              "ViewState": "AgIAANUAAAAAAAAAAAAuwOgAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-13T17:27:01.235Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "CreateCategory.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\CreateCategory.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\CreateCategory.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\CreateCategory.cshtml",
+              "RelativeToolTip": "Views\\Admin\\CreateCategory.cshtml",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAAD4AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-13T15:12:19.675Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "EditCategory.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\EditCategory.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\EditCategory.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\EditCategory.cshtml",
+              "RelativeToolTip": "Views\\Admin\\EditCategory.cshtml",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAADIAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-13T14:58:38.053Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "CategoryManager.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\CategoryManager.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\CategoryManager.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\CategoryManager.cshtml",
+              "RelativeToolTip": "Views\\Admin\\CategoryManager.cshtml",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAAA4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-13T14:44:12.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "CreateBook.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\CreateBook.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\CreateBook.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\CreateBook.cshtml",
+              "RelativeToolTip": "Views\\Admin\\CreateBook.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAHwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-12T16:26:54.936Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "BookEdit.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\BookEdit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\BookEdit.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\BookEdit.cshtml",
+              "RelativeToolTip": "Views\\Admin\\BookEdit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-12T13:11:17.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BookManager.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\BookManager.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\BookManager.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\BookManager.cshtml",
+              "RelativeToolTip": "Views\\Admin\\BookManager.cshtml",
+              "ViewState": "AgIAANkBAAAAAAAAAAAowHABAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-11T02:21:30.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Models\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Models\\AppDbContext.cs",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Models\\AppDbContext.cs",
+              "RelativeToolTip": "Models\\AppDbContext.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACAAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-10T01:31:22.068Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BorrowDetail.cs",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Models\\BorrowDetail.cs",
+              "RelativeDocumentMoniker": "Models\\BorrowDetail.cs",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Models\\BorrowDetail.cs",
+              "RelativeToolTip": "Models\\BorrowDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-10T01:26:52.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Controllers\\AdminController.cs*",
+              "RelativeToolTip": "Controllers\\AdminController.cs*",
+              "ViewState": "AgIAABUCAAAAAAAAAAAqwCsCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-08T17:33:52.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\_ViewStart.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\_ViewStart.cshtml",
+              "RelativeToolTip": "Views\\Admin\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-08T17:14:38.373Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "_LayoutAdmin.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\_LayoutAdmin.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\_LayoutAdmin.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\_LayoutAdmin.cshtml",
+              "RelativeToolTip": "Views\\Admin\\_LayoutAdmin.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAuwDsAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-08T17:06:49.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-08T17:06:43.042Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "BookLy Project.csproj",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\BookLy Project.csproj",
+              "RelativeDocumentMoniker": "BookLy Project.csproj",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\BookLy Project.csproj",
+              "RelativeToolTip": "BookLy Project.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-07T06:41:08.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "20261004183919_InitialCreate.cs",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Migrations\\20261004183919_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Migrations\\20261004183919_InitialCreate.cs",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Migrations\\20261004183919_InitialCreate.cs",
+              "RelativeToolTip": "Migrations\\20261004183919_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T18:39:19.616Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-04T18:37:16.756Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T18:36:14.811Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ErrorViewModel.cs",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T18:34:13.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BorrowRequest.cs",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Models\\BorrowRequest.cs",
+              "RelativeDocumentMoniker": "Models\\BorrowRequest.cs",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Models\\BorrowRequest.cs",
+              "RelativeToolTip": "Models\\BorrowRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T18:08:26.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Favorite.cs",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Models\\Favorite.cs",
+              "RelativeDocumentMoniker": "Models\\Favorite.cs",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Models\\Favorite.cs",
+              "RelativeToolTip": "Models\\Favorite.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T18:06:20.667Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Book.cs",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Models\\Book.cs",
+              "RelativeDocumentMoniker": "Models\\Book.cs",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Models\\Book.cs",
+              "RelativeToolTip": "Models\\Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T18:01:30.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Category.cs",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "Models\\Category.cs",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Models\\Category.cs",
+              "RelativeToolTip": "Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T17:58:37.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "User.cs",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAD4vwsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T17:39:19.967Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Privacy.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-04T14:11:50.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAAAC8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-04T09:49:19.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-04T09:49:14.604Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-04T09:49:11.531Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAADwBAAAAAAAAAAAQwF0BAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T09:47:23.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\NETC#1\\BookLy Project\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\NETC#1\\BookLy Project\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAJUAAAAAAAAAAIAwwKkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-04T09:38:02.968Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

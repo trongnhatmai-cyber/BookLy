@@ -1,4 +1,4 @@
-using BookLy_Project.Models;
+﻿using BookLy_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -16,7 +16,11 @@ namespace BookLy_Project.Controllers
         }
         public IActionResult Index()
         {
-            var data = _context.Books.Where(b=>b.IsDeleted != true);
+            var data = _context.Books
+                .Include(b => b.Category)
+                .Where(b => b.IsDeleted != true)
+                .AsNoTracking()
+                .ToList();
             return View(data);
         }
 
@@ -148,13 +152,14 @@ namespace BookLy_Project.Controllers
             var book = _context.Books
                 .Include(b => b.Category)
                 .FirstOrDefault(b => b.BookId == id && b.IsDeleted != true);
-            ViewBag.list = _context.Books.Where(b => b.Category == book.Category && b.IsDeleted != true);
-            ViewBag.Favorite = user != null &&  
-                _context.Favorites.Any(f =>
-                    f.BookId == book.BookId &&
-                    f.UserId == user.Value);
             if (book == null)
                 return NotFound();
+
+            ViewBag.list = _context.Books
+                .Where(b => b.CategoryId == book.CategoryId && b.IsDeleted != true && b.BookId != id)
+                .ToList();
+            ViewBag.Favorite = user != null &&
+                _context.Favorites.Any(f => f.BookId == book.BookId && f.UserId == user.Value);
 
             return View(book);
         }
@@ -358,7 +363,7 @@ namespace BookLy_Project.Controllers
                 if (book != null)
                 {
                     book.AvailableQuantity =
-                        (book.AvailableQuantity ?? 0) + 1;
+                        (book.AvailableQuantity ?? 0) + (detail.Quantity ?? 1);
                 }
             }
 

@@ -1,26 +1,35 @@
-﻿
+
 @model IEnumerable<BookLy_Project.Models.Book>
 
 @{
     ViewData["Title"] = "Sách yêu thích";
 }
 
-<div class="min-h-screen bg-slate-50 px-6 py-8">
+<div class="min-h-screen bg-slate-50 px-3 py-5 sm:px-6 sm:py-8">
 
     <div class="mx-auto max-w-7xl">
 
         <h1 class="mb-2 text-3xl font-bold text-slate-800">
-            ❤️ Sách yêu thích
+            <svg class="mr-2 inline h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/></svg> Sách yêu thích
         </h1>
 
         <p class="mb-8 text-slate-500">
             Những cuốn sách bạn đã lưu vào danh sách yêu thích.
         </p>
 
+        @if (Model.Any())
+        {
+            <div class="mb-6 flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-4 sm:flex-row">
+                <input id="favoriteSearch" type="search" placeholder="Tìm tên sách hoặc tác giả..." class="w-full flex-1 rounded-xl border border-slate-200 px-4 py-3 text-sm" />
+                <select id="favoriteStatus" class="rounded-xl border border-slate-200 px-4 py-3 text-sm"><option value="">Mọi tình trạng</option><option value="available">Còn sách</option><option value="unavailable">Hết sách</option></select>
+            </div>
+            <p id="favoriteCount" class="mb-4 text-sm text-slate-500"></p>
+        }
+
         @if (!Model.Any())
         {
             <div class="rounded-2xl bg-white p-10 text-center shadow-sm">
-                <div class="mb-4 text-5xl">📚</div>
+                <div class="mb-4 flex justify-center"><svg class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22z"/><path d="M4 4.5V22M8 6h8M8 10h8"/></svg></div>
 
                 <h2 class="mb-2 text-xl font-semibold text-slate-700">
                     Chưa có sách yêu thích
@@ -43,9 +52,11 @@
 
                 @foreach (var book in Model)
                 {
-                    <div class="flex w-80 shrink-0 flex-col rounded-2xl
+                    <div class="favorite-card book-filter-card flex min-w-0 w-full flex-col rounded-2xl
                         border border-slate-100 bg-white p-4
-                        shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                        shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                        data-title="@(book.Title ?? "")" data-author="@(book.Author ?? "")"
+                        data-availability="@((book.AvailableQuantity ?? 0) > 0 ? "available" : "unavailable")">
 
                         <!-- ẢNH SÁCH -->
                         <a asp-controller="Home"
@@ -134,7 +145,7 @@
 
                                 <button type="submit"
                                         class="rounded-lg bg-pink-100 px-3 py-2 text-sm text-pink-600 hover:bg-pink-200">
-                                    💔 Bỏ thích
+                                    <svg class="mr-1 inline h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/></svg> Bỏ thích
                                 </button>
 
                             </form>
@@ -146,8 +157,25 @@
                 }
 
             </div>
+            <div id="favoriteNoResults" class="hidden mt-5 rounded-xl bg-white p-8 text-center text-slate-500">Không tìm thấy sách yêu thích phù hợp.</div>
         }
 
     </div>
 
 </div>
+
+@section Scripts {
+<script>
+ document.addEventListener('DOMContentLoaded', function () {
+   const search=document.getElementById('favoriteSearch');
+   const status=document.getElementById('favoriteStatus');
+   if(!search || !status) return;
+   const cards=[...document.querySelectorAll('.favorite-card')];
+   const count=document.getElementById('favoriteCount');
+   const empty=document.getElementById('favoriteNoResults');
+   const normalize=v=>(v||'').toLocaleLowerCase('vi').trim();
+   function filter(){ let visible=0; cards.forEach(card=>{ const matchText=normalize(card.dataset.title).includes(normalize(search.value))||normalize(card.dataset.author).includes(normalize(search.value)); const matchStatus=!status.value||card.dataset.availability===status.value; const show=matchText&&matchStatus; card.classList.toggle('hidden',!show); if(show)visible++; }); count.textContent=`Hiển thị ${visible}/${cards.length} cuốn sách yêu thích`; empty.classList.toggle('hidden',visible>0); }
+   search.addEventListener('input',filter); status.addEventListener('change',filter); filter();
+ });
+</script>
+}

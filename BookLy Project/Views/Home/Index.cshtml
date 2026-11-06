@@ -1,68 +1,37 @@
-﻿@model IEnumerable<BookLy_Project.Models.Book>;
+@model IEnumerable<BookLy_Project.Models.Book>;
 @{
     ViewData["Title"] = "Trang chủ";
 }
 
-<div class="w-full pr-6">
+<div class="w-full min-w-0">
     
     <!-- HEADER / WELCOME SECTION -->
     <div class="mb-8">
         <h1 class="text-2xl md:text-3xl font-bold text-slate-900 mb-1">
-            Chào bạn, người yêu sách 👋
+            Chào bạn, người yêu sách
         </h1>
         <p class="text-slate-500 text-sm md:text-base">Hôm nay bạn muốn đọc gì?</p>
     </div>
 
-    <!-- SEARCH & FILTER BAR -->
-    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex flex-col md:flex-row gap-3 mb-10 items-center">
-        
-        <!-- Input tìm kiếm -->
-        <div class="relative flex-1 w-full">
-            <span class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-            </span>
-            <input type="text" placeholder="Tìm tên sách, tác giả..."
-                   class="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-blue-500 focus:bg-white transition">
-        </div>
-
-        <!-- Dropdown Thể loại -->
-        <div class="relative w-full md:w-48">
-            <button type="button" id="genreDropdownBtn"
-                    class="w-full flex items-center justify-between px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-700 focus:outline-none hover:bg-slate-100 transition">
-                <span>Thể loại</span>
-                <svg class="w-4 h-4 text-slate-400 transition-transform duration-200" id="genreArrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div id="genreMenu" class="hidden absolute left-0 right-0 mt-2 bg-white border border-slate-100 rounded-xl shadow-lg z-20 py-2 max-h-60 overflow-y-auto">
-                <!-- COMMENT: @@foreach(var category in Model.Categories) { -->
-                <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-blue-600">Tất cả thể loại</a>
-                <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-blue-600">Tiểu thuyết</a>
-                <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-blue-600">Kỹ năng</a>
-                <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-blue-600">Tư duy</a>
-                <!-- COMMENT: } -->
-            </div>
-        </div>
-
-        <!-- Dropdown Mượn trả -->
-        <div class="relative w-full md:w-48">
-            <button type="button" id="statusDropdownBtn"
-                    class="w-full flex items-center justify-between px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-700 focus:outline-none hover:bg-slate-100 transition">
-                <span>Mượn trả</span>
-                <svg class="w-4 h-4 text-slate-400 transition-transform duration-200" id="statusArrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div id="statusMenu" class="hidden absolute left-0 right-0 mt-2 bg-white border border-slate-100 rounded-xl shadow-lg z-20 py-2">
-                <!-- COMMENT: Tình trạng từ Database -->
-                <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-blue-600">Tất cả trạng thái</a>
-                <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-blue-600">Có sẵn</a>
-                <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-blue-600">Đang mượn</a>
-            </div>
-        </div>
-
-        <!-- Nút Tìm -->
-        <button type="button" class="w-full md:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl text-sm transition shadow-sm shadow-blue-200">
-            Tìm sách
-        </button>
+    <!-- TÌM KIẾM VÀ LỌC SÁCH -->
+    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex flex-col md:flex-row gap-3 mb-5 items-center">
+        <input id="homeBookSearch" type="search" placeholder="Tìm tên sách hoặc tác giả..."
+               class="w-full md:flex-1 px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-blue-500" />
+        <select id="homeCategoryFilter" class="w-full md:w-48 px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm">
+            <option value="">Tất cả thể loại</option>
+            @foreach (var category in Model.Where(b => b.Category != null).Select(b => b.Category!.CategoryName).Distinct().OrderBy(x => x))
+            {
+                <option value="@category">@category</option>
+            }
+        </select>
+        <select id="homeAvailabilityFilter" class="w-full md:w-48 px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm">
+            <option value="">Mọi tình trạng</option>
+            <option value="available">Còn sách</option>
+            <option value="unavailable">Hết sách</option>
+        </select>
+        <button id="homeResetFilters" type="button" class="w-full md:w-auto px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-medium">Xóa lọc</button>
     </div>
-
+    <p id="homeBookCount" class="mb-5 text-sm text-slate-500" aria-live="polite"></p>
 
     <!-- SECTION: SÁCH NỔI BẬT -->
     <div class="mb-10">
@@ -77,14 +46,14 @@
                         onclick="document.getElementById('bookSlider').scrollBy({left: -400, behavior: 'smooth'})"
                         class="rounded-full border border-slate-200 bg-white p-2
                     text-slate-600 shadow-sm hover:bg-slate-100">
-                    &#8592;
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 12H5m0 0 7-7m-7 7 7 7"/></svg>
                 </button>
 
                 <button type="button"
                         onclick="document.getElementById('bookSlider').scrollBy({left: 400, behavior: 'smooth'})"
                         class="rounded-full border border-slate-200 bg-white p-2
                     text-slate-600 shadow-sm hover:bg-slate-100">
-                    &#8594;
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m0 0-7-7m7 7-7 7"/></svg>
                 </button>
             </div>
         </div>
@@ -96,9 +65,12 @@
 
             @foreach (var book in Model)
             {
-                <div class="flex w-80 shrink-0 flex-col rounded-2xl
+                <div class="book-filter-card flex w-80 shrink-0 flex-col rounded-2xl
                     border border-slate-100 bg-white p-4
-                    shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                    shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                    data-title="@(book.Title ?? "")" data-author="@(book.Author ?? "")"
+                    data-category="@(book.Category?.CategoryName ?? "")"
+                    data-availability="@((book.AvailableQuantity ?? 0) > 0 ? "available" : "unavailable")">
 
                     <!-- ẢNH SÁCH -->
                     <a asp-controller="Home"
@@ -184,6 +156,7 @@
             }
 
         </div>
+        <div id="homeNoBooks" class="hidden rounded-xl bg-white p-8 text-center text-slate-500">Không tìm thấy sách phù hợp với bộ lọc.</div>
     </div>
 
 </div>
@@ -191,61 +164,30 @@
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            function setupDropdown(btnId, menuId, arrowId) {
-                const btn = document.getElementById(btnId);
-                const menu = document.getElementById(menuId);
-                const arrow = document.getElementById(arrowId);
-                const span = btn.querySelector('span');
-
-                btn.addEventListener('click', function (e) {
-                    e.stopPropagation();
-                    // Đóng các menu khác nếu có
-                    document.querySelectorAll('[id$="Menu"]').forEach(m => {
-                        if (m !== menu) m.classList.add('hidden');
-                    });
-                    document.querySelectorAll('[id$="Arrow"]').forEach(a => {
-                        if (a !== arrow) a.classList.remove('rotate-180');
-                    });
-
-                    menu.classList.toggle('hidden');
-                    arrow.classList.toggle('rotate-180');
+            const search = document.getElementById('homeBookSearch');
+            const category = document.getElementById('homeCategoryFilter');
+            const availability = document.getElementById('homeAvailabilityFilter');
+            const cards = Array.from(document.querySelectorAll('#bookSlider .book-filter-card'));
+            const empty = document.getElementById('homeNoBooks');
+            const count = document.getElementById('homeBookCount');
+            const normalize = value => (value || '').toLocaleLowerCase('vi').normalize('NFC').trim();
+            function applyFilters() {
+                const keyword = normalize(search.value);
+                let visible = 0;
+                cards.forEach(card => {
+                    const textMatch = normalize(card.dataset.title).includes(keyword) || normalize(card.dataset.author).includes(keyword);
+                    const categoryMatch = !category.value || card.dataset.category === category.value;
+                    const statusMatch = !availability.value || card.dataset.availability === availability.value;
+                    const show = textMatch && categoryMatch && statusMatch;
+                    card.classList.toggle('hidden', !show);
+                    if (show) visible++;
                 });
-
-                menu.querySelectorAll('a').forEach(item => {
-                    item.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        span.textContent = this.textContent;
-                        menu.classList.add('hidden');
-                        arrow.classList.remove('rotate-180');
-                    });
-                });
+                empty.classList.toggle('hidden', visible !== 0);
+                count.textContent = `Hiển thị ${visible}/${cards.length} cuốn sách`;
             }
-
-            setupDropdown('genreDropdownBtn', 'genreMenu', 'genreArrow');
-            setupDropdown('statusDropdownBtn', 'statusMenu', 'statusArrow');
-
-            // Click ra ngoài thì ẩn tất cả popup
-            document.addEventListener('click', function () {
-                document.querySelectorAll('[id$="Menu"]').forEach(m => m.classList.add('hidden'));
-                document.querySelectorAll('[id$="Arrow"]').forEach(a => a.classList.remove('rotate-180'));
-            });
-
-            // Hiệu ứng nút Yêu thích
-            const favoriteButtons = document.querySelectorAll('.favorite-btn');
-            favoriteButtons.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    const svg = this.querySelector('svg');
-                    if (this.classList.contains('bg-red-500')) {
-                        this.classList.remove('bg-red-500', 'text-white', 'border-red-500');
-                        this.classList.add('border-slate-200', 'text-slate-400', 'hover:bg-red-50', 'hover:text-red-500');
-                        svg.setAttribute('fill', 'none');
-                    } else {
-                        this.classList.remove('border-slate-200', 'text-slate-400', 'hover:bg-red-50', 'hover:text-red-500');
-                        this.classList.add('bg-red-500', 'text-white', 'border-red-500');
-                        svg.setAttribute('fill', 'currentColor');
-                    }
-                });
-            });
+            [search, category, availability].forEach(el => el.addEventListener(el === search ? 'input' : 'change', applyFilters));
+            document.getElementById('homeResetFilters').addEventListener('click', () => { search.value=''; category.value=''; availability.value=''; applyFilters(); });
+            applyFilters();
         });
     </script>
 }

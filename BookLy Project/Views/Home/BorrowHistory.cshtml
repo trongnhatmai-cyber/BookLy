@@ -1,10 +1,10 @@
-﻿@model IEnumerable<BookLy_Project.Models.BorrowRequest>
+@model IEnumerable<BookLy_Project.Models.BorrowRequest>
 
 @{
     ViewData["Title"] = "Lịch sử mượn sách";
 }
 
-<div class="min-h-screen bg-slate-50 px-6 py-8">
+<div class="min-h-screen bg-slate-50 px-3 py-5 sm:px-6 sm:py-8">
     <div class="mx-auto max-w-6xl">
 
         <h1 class="mb-2 text-3xl font-bold text-slate-800">
@@ -15,10 +15,21 @@
             Theo dõi các phiếu mượn và tình trạng trả sách của bạn.
         </p>
 
+        @if (Model.Any())
+        {
+            <div class="mb-6 flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-4 sm:flex-row">
+                <input id="historySearch" type="search" placeholder="Tìm theo tên sách hoặc mã phiếu..." class="w-full flex-1 rounded-xl border border-slate-200 px-4 py-3 text-sm" />
+                <select id="historyStatus" class="rounded-xl border border-slate-200 px-4 py-3 text-sm">
+                    <option value="">Tất cả trạng thái</option><option value="Pending">Chờ duyệt</option><option value="Approved">Đang mượn</option><option value="Overdue">Quá hạn</option><option value="Returned">Đã trả</option><option value="Cancelled">Đã hủy</option>
+                </select>
+            </div>
+            <p id="historyCount" class="mb-4 text-sm text-slate-500"></p>
+        }
+
         @if (!Model.Any())
         {
             <div class="rounded-2xl bg-white p-10 text-center shadow-sm">
-                <div class="mb-4 text-5xl">📚</div>
+                <div class="mb-4 flex justify-center"><svg class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22z"/><path d="M4 4.5V22M8 6h8M8 10h8"/></svg></div>
 
                 <h2 class="mb-3 text-xl font-semibold text-slate-700">
                     Bạn chưa có lịch sử mượn sách
@@ -44,7 +55,8 @@
                     var detail = request.BorrowDetails.FirstOrDefault();
                     var book = detail?.Book;
 
-                    <div class="rounded-2xl bg-white p-5 shadow-sm">
+                    <div class="borrow-history-card rounded-2xl bg-white p-5 shadow-sm"
+                         data-status="@(request.Status ?? "")" data-book="@(book?.Title ?? "")" data-borrow-id="@request.BorrowId">
 
                         <div class="flex flex-col gap-5 sm:flex-row">
 
@@ -159,7 +171,20 @@
                 }
 
             </div>
+            <div id="historyNoResults" class="hidden rounded-xl bg-white p-8 text-center text-slate-500">Không tìm thấy phiếu mượn phù hợp.</div>
         }
 
     </div>
 </div>
+
+@section Scripts {
+<script>
+ document.addEventListener('DOMContentLoaded',function(){
+  const search=document.getElementById('historySearch'),status=document.getElementById('historyStatus'); if(!search||!status)return;
+  const cards=[...document.querySelectorAll('.borrow-history-card')], empty=document.getElementById('historyNoResults'), count=document.getElementById('historyCount');
+  const norm=v=>(v||'').toLocaleLowerCase('vi').trim();
+  function filter(){let n=0;cards.forEach(c=>{const text=norm(c.dataset.book+' '+c.dataset.borrowId).includes(norm(search.value));const st=!status.value||c.dataset.status===status.value;const show=text&&st;c.classList.toggle('hidden',!show);if(show)n++;});empty.classList.toggle('hidden',n>0);count.textContent=`Hiển thị ${n}/${cards.length} phiếu mượn`;}
+  search.addEventListener('input',filter);status.addEventListener('change',filter);filter();
+ });
+</script>
+}

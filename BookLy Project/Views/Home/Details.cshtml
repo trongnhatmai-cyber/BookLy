@@ -1,14 +1,14 @@
-﻿@model BookLy_Project.Models.Book
+@model BookLy_Project.Models.Book
 
 @{
     ViewData["Title"] = "Chi tiết sách";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="min-h-screen bg-slate-50 px-6 py-10">
+<div class="min-h-screen bg-slate-50 px-3 py-5 sm:px-6 sm:py-8">
     <div class="flex flex-col mx-auto max-w-5xl gap-4">
 
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-10">
+        <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 md:p-10">
 
             <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 
@@ -100,14 +100,14 @@
                                 {
                                     <button type="submit"
                                             class="rounded-lg bg-pink-100 px-5 py-2 text-pink-600 hover:bg-pink-200">
-                                        💔 Bỏ yêu thích
+                                        <svg class="mr-1 inline h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/></svg> Bỏ yêu thích
                                     </button>
                                 }
                                 else
                                 {
                                     <button type="submit"
                                             class="rounded-lg bg-pink-100 px-5 py-2 text-pink-600 hover:bg-pink-200">
-                                        ❤️ Yêu thích
+                                        <svg class="mr-1 inline h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/></svg> Yêu thích
                                     </button>
                                 }
                             </form>
@@ -127,7 +127,7 @@
                 </p>
             </div>
         </div>
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-10">
+        <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 md:p-10">
             <!-- SECTION: SÁCH NỔI BẬT -->
             <div class="mb-10">
 
@@ -141,14 +141,14 @@
                                 onclick="document.getElementById('bookSlider').scrollBy({left: -400, behavior: 'smooth'})"
                                 class="rounded-full border border-slate-200 bg-white p-2
                             text-slate-600 shadow-sm hover:bg-slate-100">
-                            &#8592;
+                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 12H5m0 0 7-7m-7 7 7 7"/></svg>
                         </button>
 
                         <button type="button"
                                 onclick="document.getElementById('bookSlider').scrollBy({left: 400, behavior: 'smooth'})"
                                 class="rounded-full border border-slate-200 bg-white p-2
                             text-slate-600 shadow-sm hover:bg-slate-100">
-                            &#8594;
+                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m0 0-7-7m7 7-7 7"/></svg>
                         </button>
                     </div>
                 </div>
@@ -247,7 +247,7 @@
                                         class="rounded-lg bg-slate-50 px-2 py-2
                                     text-sm text-slate-600 hover:bg-pink-50
                                     hover:text-pink-600">
-                                    ♡
+                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/></svg>
                                 </button>
 
                             </div>

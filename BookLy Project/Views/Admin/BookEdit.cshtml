@@ -1,4 +1,4 @@
-﻿@model BookLy_Project.Models.Book
+@model BookLy_Project.Models.Book
 
 @{
     ViewData["Title"] = "Sửa sách";
@@ -18,7 +18,7 @@
                 </p>
             </div>
 
-            <a asp-action="Index"
+            <a asp-action="BookManager"
                    class="rounded-xl border border-slate-200 bg-white px-5 py-3
                 text-sm font-medium text-slate-600 transition
                 hover:bg-slate-100">
@@ -150,7 +150,7 @@
 
                 <!-- Nút thao tác -->
                 <div class="mt-8 flex flex-wrap justify-end gap-3 border-t border-slate-100 pt-6">
-                    <a asp-action="Index"
+                    <a asp-action="BookManager"
                            class="rounded-xl border border-slate-200 px-6 py-3
                         text-sm font-semibold text-slate-600 transition
                         hover:bg-slate-50">

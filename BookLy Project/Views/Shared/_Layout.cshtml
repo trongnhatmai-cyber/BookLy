@@ -1,18 +1,19 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem("bookly-theme");
+            if (savedTheme === "dark") document.documentElement.classList.add("dark");
+        })();
+    </script>
     <title>@ViewData["Title"] - Bookly</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-        font-family: 'Inter', sans-serif;
-        background-color: #F8FAFC;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body class="bg-slate-50">
 
@@ -48,19 +49,23 @@
     </script>
 
     <!-- Flex Container bao bọc Layout và Nội dung -->
-    <div class="min-h-screen flex flex-col md:flex-row">
+    <div class="min-h-screen flex flex-col lg:flex-row">
         
         <!-- SIDEBAR MENU BÊN TRÁI -->
-        <aside class="w-full md:w-64 bg-white border-r border-slate-100 p-6 flex flex-col justify-between shrink-0">
+        <aside class="w-full shrink-0 border-b border-slate-100 bg-white p-4 sm:p-6 lg:sticky lg:top-0 lg:h-screen lg:w-64 lg:border-b-0 lg:border-r">
             <div>
                 <!-- Logo -->
-                <div class="flex items-center gap-2 mb-8">
+                <div class="mb-4 flex items-center gap-2 sm:mb-6 lg:mb-8">
                     <span class="text-xl font-bold text-blue-600">Bookly</span>
                     <span class="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded-md">thư viện</span>
                 </div>
+                <button type="button" id="themeToggle" class="mb-4 flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-100">
+                    <span id="themeIcon">🌙</span>
+                    <span id="themeText">Chế độ tối</span>
+                </button>
                 
                 <!-- Menu Links -->
-                <nav class="space-y-5">
+                <nav class="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-1">
                     <a asp-controller="Home" asp-action="Index" class="flex items-center gap-3 px-4 py-3 bg-blue-50 text-blue-600 font-medium rounded-xl text-sm transition">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                         Trang chủ
@@ -79,7 +84,7 @@
                                    asp-action="Profile"
                                    class="flex items-center gap-3 rounded-xl px-4 py-3
                                 text-slate-600 hover:bg-blue-50 hover:text-blue-600">
-                                <span>👤</span>
+                                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
                                 <span>Hồ sơ người dùng</span>
                             </a>
                             <a asp-controller="Home"
@@ -87,7 +92,7 @@
                                class="flex items-center gap-3 rounded-xl px-4 py-3
                                       text-slate-600 transition hover:bg-red-50 hover:text-red-600">
 
-                                <span>↪</span>
+                                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M13 3h5a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-5"/></svg>
                                 <span>Đăng xuất</span>
                             </a>
                         }
@@ -102,7 +107,7 @@
             </div>
 
             <!-- Profile Footer -->
-            <div class="mt-8 pt-4 border-t border-slate-100">
+            <div class="mt-4 border-t border-slate-100 pt-4 lg:mt-8">
                 <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-2xl">
                     <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold text-sm">B</div>
                     <div>
@@ -114,7 +119,7 @@
         </aside>
 
 
-        <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+        <main class="min-w-0 flex-1 overflow-y-auto p-4 sm:p-6 lg:p-10">
 
             @RenderBody()
 
@@ -306,6 +311,30 @@
     </div>
 
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        (function () {
+            const button = document.getElementById("themeToggle");
+            const icon = document.getElementById("themeIcon");
+            const label = document.getElementById("themeText");
+
+            function updateThemeButton() {
+                const isDark = document.documentElement.classList.contains("dark");
+                if (icon) icon.textContent = isDark ? "☀️" : "🌙";
+                if (label) label.textContent = isDark ? "Chế độ sáng" : "Chế độ tối";
+                document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+            }
+
+            updateThemeButton();
+            if (button) {
+                button.addEventListener("click", function () {
+                    const isDark = document.documentElement.classList.toggle("dark");
+                    localStorage.setItem("bookly-theme", isDark ? "dark" : "light");
+                    updateThemeButton();
+                });
+            }
+        })();
+    </script>
 </body>
 <script>
     const loginButton = document.getElementById("login-button");

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BookLy_Project.Models.Book>
+@model IEnumerable<BookLy_Project.Models.Book>
 
 @{
     ViewData["Title"] = "Quản lý sách";
@@ -10,7 +10,7 @@
         padding: 28px;
         background: #f4f7fc;
         color: #1d2d46;
-        font-family: "Segoe UI", Arial, sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
         .book-page * {
@@ -27,7 +27,7 @@
 
         .book-header h1 {
             margin: 0 0 7px;
-            font: bold 34px Georgia, serif;
+            font: bold 34px Arial, Helvetica, sans-serif;
         }
 
         .book-header p {
@@ -260,6 +260,15 @@
         </a>
     </div>
 
+    @if (TempData["Success"] != null)
+    {
+        <div class="mb-4 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="mb-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">@TempData["Error"]</div>
+    }
+
     <!-- TÌM KIẾM VÀ LỌC -->
     <div class="book-filters">
         <div class="book-filter">
@@ -298,7 +307,7 @@
 
     <!-- BẢNG DANH SÁCH -->
     <div class="book-table-card">
-        <table class="book-table">
+        <table class="table-bordered book-table">
             <thead>
                 <tr>
                     <th>Sách / tác giả</th>

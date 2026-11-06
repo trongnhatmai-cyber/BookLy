@@ -13,62 +13,145 @@ namespace BookLy_Project.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(string? weekOf)
         {
             if (HttpContext.Session.GetString("Role") != "Admin")
-            {
                 return RedirectToAction("Index", "Home");
+
+            if (!DateTime.TryParseExact(
+                    weekOf, "yyyy-MM-dd",
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    System.Globalization.DateTimeStyles.None,
+                    out var selectedDate))
+            {
+                selectedDate = DateTime.Today;
             }
 
-            ViewBag.totalBooks = _context.Books.Count(b => b.IsDeleted != true);
-            ViewBag.borrowed = _context.Books.Count(b => b.AvailableQuantity < b.TotalQuantity);
-            ViewBag.totalUser = _context.Users.Count();
-            ViewBag.expired = _context.BorrowRequests.Count(b => b.Status == "Expired");
-            return View();
+            selectedDate = selectedDate.Date;
+            // Tuần bắt đầu từ thứ Hai và kết thúc vào Chủ nhật.
+            var weekStart = selectedDate.AddDays(-(((int)selectedDate.DayOfWeek + 6) % 7));
+            var weekEnd = weekStart.AddDays(7);
+
+            // Đếm số cuốn sách thực tế được mượn (tổng Quantity trong BorrowDetails),
+            // không phải số phiếu mượn.
+            var dailyBorrowRows = _context.BorrowDetails
+                .AsNoTracking()
+                .Where(d => d.BorrowRequest != null
+                    && d.BorrowRequest.RequestedAt.HasValue
+                    && d.BorrowRequest.RequestedAt.Value >= weekStart
+                    && d.BorrowRequest.RequestedAt.Value < weekEnd
+                    && (d.BorrowRequest.Status == "Approved"
+                        || d.BorrowRequest.Status == "Overdue"
+                        || d.BorrowRequest.Status == "Returned"))
+                .Select(d => new
+                {
+                    RequestedAt = d.BorrowRequest!.RequestedAt!.Value,
+                    Quantity = d.Quantity ?? 0
+                })
+                .ToList();
+
+            var dailyStats = Enumerable.Range(0, 7)
+                .Select(offset =>
+                {
+                    var day = weekStart.AddDays(offset);
+                    return new DailyBorrowStat
+                    {
+                        Date = day,
+                        DayLabel = new[] { "T2", "T3", "T4", "T5", "T6", "T7", "CN" }[offset],
+                        BookCount = dailyBorrowRows
+                            .Where(x => x.RequestedAt.Date == day)
+                            .Sum(x => x.Quantity)
+                    };
+                })
+                .ToList();
+
+            var model = new AdminDashboardViewModel
+            {
+                TotalBooks = _context.Books.Count(b => b.IsDeleted != true),
+                BorrowedBooks = _context.Books.Count(b => b.IsDeleted != true
+                    && b.AvailableQuantity < b.TotalQuantity),
+                TotalUsers = _context.Users.Count(),
+                ExpiredRequests = _context.BorrowRequests.Count(b =>
+                    b.Status == "Expired" ||
+                    b.Status == "Overdue" ||
+                    (b.Status == "Approved" && b.DueDate.HasValue && b.DueDate.Value < DateTime.Now)),
+                WeekStart = weekStart,
+                SelectedDate = selectedDate,
+                DailyBorrowStats = dailyStats
+            };
+
+            return View(model);
         }
-        //book manager
+        // Danh sách sách
         public IActionResult BookManager()
         {
             if (HttpContext.Session.GetString("Role") != "Admin")
-            {
                 return RedirectToAction("Index", "Home");
-            }
 
             var books = _context.Books
-               .Include(b => b.Category)
-               .Where(b => b.IsDeleted != true)
-               .ToList();
+                .AsNoTracking()
+                .Include(b => b.Category)
+                .Where(b => b.IsDeleted != true)
+                .OrderBy(b => b.Title)
+                .ToList();
+
             return View(books);
         }
-        //Edit book
+
+        // Hiển thị form chỉnh sửa
+        [HttpGet]
         public IActionResult EditBook(int id)
         {
-            var book = _context.Books.FirstOrDefault(b=>b.BookId == id);
+            if (HttpContext.Session.GetString("Role") != "Admin")
+                return RedirectToAction("Index", "Home");
 
-            ViewBag.Categories = new SelectList(
-                _context.Categories.ToList(),
-                "CategoryId",
-                "CategoryName",
-                book.CategoryId
-            );
+            var book = _context.Books.FirstOrDefault(b => b.BookId == id && b.IsDeleted != true);
             if (book == null)
                 return NotFound();
 
-            return View("BookEdit",book);
+            ViewBag.Categories = new SelectList(
+                _context.Categories.AsNoTracking().ToList(),
+                "CategoryId", "CategoryName", book.CategoryId);
+
+            return View("BookEdit", book);
         }
 
+        // Lưu chỉnh sửa. Tên action phải trùng với asp-action trong form BookEdit.
         [HttpPost]
-        public IActionResult Edit(Book book)
+        [ValidateAntiForgeryToken]
+        public IActionResult EditBook(Book book)
         {
-            var oldBook = _context.Books.Find(book.BookId);
+            if (HttpContext.Session.GetString("Role") != "Admin")
+                return RedirectToAction("Index", "Home");
+
+            var oldBook = _context.Books.FirstOrDefault(b =>
+                b.BookId == book.BookId && b.IsDeleted != true);
 
             if (oldBook == null)
-            {
                 return NotFound();
+
+            if (string.IsNullOrWhiteSpace(book.Title))
+                ModelState.AddModelError(nameof(book.Title), "Vui lòng nhập tên sách.");
+
+            if (book.TotalQuantity < 0 || book.AvailableQuantity < 0
+                || book.AvailableQuantity > book.TotalQuantity)
+                ModelState.AddModelError(nameof(book.AvailableQuantity),
+                    "Số lượng còn phải từ 0 đến tổng số lượng.");
+
+            if (book.CategoryId.HasValue
+                && !_context.Categories.Any(c => c.CategoryId == book.CategoryId.Value))
+                ModelState.AddModelError(nameof(book.CategoryId), "Thể loại không tồn tại.");
+
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Categories = new SelectList(
+                    _context.Categories.AsNoTracking().ToList(),
+                    "CategoryId", "CategoryName", book.CategoryId);
+                return View("BookEdit", book);
             }
 
-            oldBook.Title = book.Title;
-            oldBook.Author = book.Author;
+            oldBook.Title = book.Title!.Trim();
+            oldBook.Author = book.Author?.Trim();
             oldBook.CategoryId = book.CategoryId;
             oldBook.Description = book.Description;
             oldBook.ImageUrl = book.ImageUrl;
@@ -76,56 +159,96 @@ namespace BookLy_Project.Controllers
             oldBook.AvailableQuantity = book.AvailableQuantity;
 
             _context.SaveChanges();
-
-            return RedirectToAction("Index");
+            TempData["Success"] = "Cập nhật thông tin sách thành công.";
+            return RedirectToAction(nameof(BookManager));
         }
-        // Create book
-        // Hiển thị trang thêm sách
+
+        // Hiển thị form thêm sách
         [HttpGet]
         public IActionResult CreateBook()
         {
-            ViewBag.Categories = new SelectList(
-                _context.Categories.ToList(),
-                "CategoryId",
-                "CategoryName"
-            );
+            if (HttpContext.Session.GetString("Role") != "Admin")
+                return RedirectToAction("Index", "Home");
 
+            ViewBag.Categories = new SelectList(
+                _context.Categories.AsNoTracking().ToList(),
+                "CategoryId", "CategoryName");
             return View();
         }
 
-        // Xử lý thêm sách
+        // Lưu sách mới
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateBook(Book book)
         {
-            if (book.AvailableQuantity > book.TotalQuantity)
-            {
-                ModelState.AddModelError("", "Số lượng còn không được lớn hơn tổng số lượng.");
-            }
+            if (HttpContext.Session.GetString("Role") != "Admin")
+                return RedirectToAction("Index", "Home");
+
+            if (string.IsNullOrWhiteSpace(book.Title))
+                ModelState.AddModelError(nameof(book.Title), "Vui lòng nhập tên sách.");
+
+            if (book.TotalQuantity < 0 || book.AvailableQuantity < 0
+                || book.AvailableQuantity > book.TotalQuantity)
+                ModelState.AddModelError(nameof(book.AvailableQuantity),
+                    "Số lượng còn phải từ 0 đến tổng số lượng.");
+
+            if (book.CategoryId.HasValue
+                && !_context.Categories.Any(c => c.CategoryId == book.CategoryId.Value))
+                ModelState.AddModelError(nameof(book.CategoryId), "Thể loại không tồn tại.");
 
             if (!ModelState.IsValid)
             {
                 ViewBag.Categories = new SelectList(
-                    _context.Categories.ToList(),
-                    "CategoryId",
-                    "CategoryName",
-                    book.CategoryId
-                );
-
+                    _context.Categories.AsNoTracking().ToList(),
+                    "CategoryId", "CategoryName", book.CategoryId);
                 return View(book);
             }
 
+            book.Title = book.Title!.Trim();
+            book.Author = book.Author?.Trim();
             book.IsDeleted = false;
-
             _context.Books.Add(book);
             _context.SaveChanges();
 
-            return RedirectToAction("Index");
+            TempData["Success"] = "Thêm sách thành công.";
+            return RedirectToAction(nameof(BookManager));
         }
+
+        // Xóa mềm để không làm hỏng lịch sử mượn/trả có liên kết với sách.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteBook(int id)
+        {
+            if (HttpContext.Session.GetString("Role") != "Admin")
+                return RedirectToAction("Index", "Home");
+
+            var book = _context.Books.FirstOrDefault(b => b.BookId == id && b.IsDeleted != true);
+            if (book == null)
+                return NotFound();
+
+            var hasActiveBorrow = _context.BorrowDetails.Any(d =>
+                d.BookId == id && d.BorrowRequest != null
+                && (d.BorrowRequest.Status == "Pending"
+                    || d.BorrowRequest.Status == "Approved"
+                    || d.BorrowRequest.Status == "Overdue"));
+
+            if (hasActiveBorrow)
+            {
+                TempData["Error"] = "Không thể xóa sách đang nằm trong phiếu mượn chưa hoàn tất.";
+                return RedirectToAction(nameof(BookManager));
+            }
+
+            book.IsDeleted = true;
+            _context.SaveChanges();
+            TempData["Success"] = "Đã xóa sách khỏi danh mục.";
+            return RedirectToAction(nameof(BookManager));
+        }
+
         // Category Manager
         // Trang quản lý thể loại
         public IActionResult CategoryManager()
         {
+            if (HttpContext.Session.GetString("Role") != "Admin") return RedirectToAction("Index", "Home");
             var categories = _context.Categories.ToList();
             return View(categories);
         }
@@ -219,6 +342,7 @@ namespace BookLy_Project.Controllers
         // Trang quản lý mượn trả
         public IActionResult BorrowManager()
         {
+            if (HttpContext.Session.GetString("Role") != "Admin") return RedirectToAction("Index", "Home");
             var requests = _context.BorrowRequests
                 .Include(r => r.User)
                 .Include(r => r.BorrowDetails)
@@ -312,8 +436,79 @@ namespace BookLy_Project.Controllers
         // Trang quản lý người dùng
         public IActionResult UserManager()
         {
+            if (HttpContext.Session.GetString("Role") != "Admin") return RedirectToAction("Index", "Home");
             var users = _context.Users.ToList();
             return View(users);
+        }
+
+        // Thực hiện thao tác hàng loạt với tài khoản học sinh
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult BulkUserAction(List<int> selectedIds, string action)
+        {
+            if (HttpContext.Session.GetString("Role") != "Admin")
+                return RedirectToAction("Index", "Home");
+
+            if (selectedIds == null || selectedIds.Count == 0)
+            {
+                TempData["Error"] = "Vui lòng chọn ít nhất một học sinh.";
+                return RedirectToAction(nameof(UserManager));
+            }
+
+            // Chỉ xử lý tài khoản học sinh, không cho thao tác hàng loạt lên Admin.
+            var currentUserId = HttpContext.Session.GetInt32("UserId");
+            var users = _context.Users
+                .Where(u => selectedIds.Contains(u.UserId)
+                    && u.Role == "Student"
+                    && u.UserId != currentUserId)
+                .ToList();
+
+            if (users.Count == 0)
+            {
+                TempData["Error"] = "Không có học sinh hợp lệ được chọn.";
+                return RedirectToAction(nameof(UserManager));
+            }
+
+            if (action == "Lock" || action == "Unlock")
+            {
+                foreach (var user in users)
+                    user.Status = action == "Lock" ? "Locked" : "Active";
+
+                _context.SaveChanges();
+                TempData["Success"] = $"Đã {(action == "Lock" ? "khóa" : "mở khóa")} {users.Count} tài khoản học sinh.";
+            }
+            else if (action == "Delete")
+            {
+                int deleted = 0;
+                int skipped = 0;
+
+                foreach (var user in users)
+                {
+                    bool hasBorrowHistory = _context.BorrowRequests.Any(r =>
+                        r.UserId == user.UserId || r.ApprovedBy == user.UserId);
+                    bool hasFavorites = _context.Favorites.Any(f => f.UserId == user.UserId);
+
+                    // Giữ lại tài khoản có dữ liệu liên quan để không làm mất lịch sử.
+                    if (hasBorrowHistory || hasFavorites)
+                    {
+                        skipped++;
+                        continue;
+                    }
+
+                    _context.Users.Remove(user);
+                    deleted++;
+                }
+
+                _context.SaveChanges();
+                TempData[deleted > 0 ? "Success" : "Error"] =
+                    $"Đã xóa {deleted} tài khoản. Bỏ qua {skipped} tài khoản vì đang có lịch sử mượn sách hoặc sách yêu thích.";
+            }
+            else
+            {
+                TempData["Error"] = "Thao tác không hợp lệ.";
+            }
+
+            return RedirectToAction(nameof(UserManager));
         }
 
         // Khóa hoặc mở khóa tài khoản
@@ -505,7 +700,7 @@ namespace BookLy_Project.Controllers
                     .FirstOrDefault(b => b.BookId == detail.BookId);
 
                 if (book != null)
-                    book.AvailableQuantity = (book.AvailableQuantity ?? 0) + 1;
+                    book.AvailableQuantity = (book.AvailableQuantity ?? 0) + (detail.Quantity ?? 1);
             }
 
             request.Status = "Returned";

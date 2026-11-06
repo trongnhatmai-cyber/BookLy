@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\NETC#1\\BookLy Project\\BookLy Project.csproj": {}
+    "C:\\Users\\Trong Nhat\\Downloads\\BookLy_Project_dark_light_table_bordered\\BookLy Project\\BookLy Project.csproj": {}
   },
   "projects": {
-    "E:\\NETC#1\\BookLy Project\\BookLy Project.csproj": {
+    "C:\\Users\\Trong Nhat\\Downloads\\BookLy_Project_dark_light_table_bordered\\BookLy Project\\BookLy Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\NETC#1\\BookLy Project\\BookLy Project.csproj",
+        "projectUniqueName": "C:\\Users\\Trong Nhat\\Downloads\\BookLy_Project_dark_light_table_bordered\\BookLy Project\\BookLy Project.csproj",
         "projectName": "BookLy Project",
-        "projectPath": "E:\\NETC#1\\BookLy Project\\BookLy Project.csproj",
+        "projectPath": "C:\\Users\\Trong Nhat\\Downloads\\BookLy_Project_dark_light_table_bordered\\BookLy Project\\BookLy Project.csproj",
         "packagesPath": "C:\\Users\\Trong Nhat\\.nuget\\packages\\",
-        "outputPath": "E:\\NETC#1\\BookLy Project\\obj\\",
+        "outputPath": "C:\\Users\\Trong Nhat\\Downloads\\BookLy_Project_dark_light_table_bordered\\BookLy Project\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

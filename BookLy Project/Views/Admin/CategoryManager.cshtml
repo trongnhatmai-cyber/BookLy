@@ -1,4 +1,4 @@
-﻿
+
 @model IEnumerable<BookLy_Project.Models.Category>
 
 @{
@@ -51,7 +51,7 @@
                 <div class="flex items-center gap-4">
                     <div class="flex h-12 w-12 items-center justify-center
                         rounded-xl bg-blue-50 text-2xl">
-                        📚
+                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22z"/><path d="M4 4.5V22M8 6h8M8 10h8"/></svg>
                     </div>
 
                     <div>
@@ -67,7 +67,7 @@
                 <div class="flex items-center gap-4">
                     <div class="flex h-12 w-12 items-center justify-center
                         rounded-xl bg-indigo-50 text-2xl">
-                        🗂️
+                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 7h7l2 2h9v10H3z"/><path d="M3 7V5h7l2 2"/></svg>
                     </div>
 
                     <div>
@@ -108,7 +108,7 @@
             </div>
 
             <div class="overflow-x-auto">
-                <table class="w-full text-left text-sm">
+                <table class="table-bordered w-full min-w-[540px] text-left text-sm">
                     <thead class="bg-slate-50 text-slate-500">
                         <tr>
                             <th class="whitespace-nowrap px-6 py-4 font-semibold">
@@ -195,7 +195,7 @@
                 <!-- Không có dữ liệu tìm kiếm -->
                 <div id="noResults"
                      class="hidden px-6 py-12 text-center">
-                    <div class="mb-3 text-4xl">🔎</div>
+                    <div class="mb-3 flex justify-center"><svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></div>
                     <p class="font-semibold text-slate-700">
                         Không tìm thấy thể loại
                     </p>
@@ -207,7 +207,7 @@
                 @if (!Model.Any())
                 {
                     <div class="px-6 py-12 text-center">
-                        <div class="mb-3 text-4xl">📚</div>
+                        <div class="mb-3 flex justify-center"><svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22z"/><path d="M4 4.5V22M8 6h8M8 10h8"/></svg></div>
                         <p class="font-semibold text-slate-700">
                             Chưa có thể loại nào
                         </p>
@@ -235,16 +235,18 @@
         const searchInput = document.getElementById("searchCategory");
         const rows = document.querySelectorAll(".category-row");
         const noResults = document.getElementById("noResults");
+        const normalize = value => (value || "").toLocaleLowerCase("vi").trim();
 
-        searchInput.addEventListener("input", function () {
-            const keyword = this.value.toLowerCase().trim();
+        function filterCategories() {
+            const keyword = normalize(searchInput.value);
             let count = 0;
 
             rows.forEach(function (row) {
                 const name = row.querySelector(".category-name")
-                                .textContent.toLowerCase();
+                                .textContent;
+                const normalizedName = normalize(name);
 
-                if (name.includes(keyword)) {
+                if (normalizedName.includes(keyword)) {
                     row.classList.remove("hidden");
                     count++;
                 } else {
@@ -253,6 +255,8 @@
             });
 
             noResults.classList.toggle("hidden", count > 0);
-        });
+        }
+        searchInput.addEventListener("input", filterCategories);
+        filterCategories();
     </script>
 }

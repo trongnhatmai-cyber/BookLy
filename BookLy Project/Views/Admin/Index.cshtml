@@ -1,58 +1,102 @@
-﻿@{
+@model BookLy_Project.Models.AdminDashboardViewModel
+
+@{
     ViewData["Title"] = "Tổng quan thư viện";
+    var maxCount = Model.DailyBorrowStats.Any() ? Model.DailyBorrowStats.Max(x => x.BookCount) : 0;
+    var currentWeek = DateTime.Today.ToString("yyyy-MM-dd");
 }
 
-<!-- Header tiêu đề trang -->
-<div class="mb-8">
-    <h2 class="text-3xl font-bold text-gray-900 tracking-tight">Tổng quan thư viện</h2>
-    <p class="text-sm text-gray-500 mt-1">Một góc nhìn nhanh về hoạt động BOOKLY.</p>
-</div>
+<style>
+    .admin-dashboard { width: 100%; max-width: 1440px; margin: 0 auto; }
+    .weekly-chart { min-height: 250px; display: flex; align-items: end; gap: clamp(12px, 3vw, 34px); padding: 24px 12px 0; }
+    .weekly-column { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: end; height: 190px; gap: 9px; }
+    .weekly-value { min-height: 18px; color: #64748b; font-size: 12px; font-weight: 600; }
+    .weekly-bar-area { width: min(100%, 56px); height: 140px; display: flex; align-items: end; }
+    .weekly-bar { width: 100%; min-height: 0; border-radius: 7px 7px 0 0; background: linear-gradient(180deg,#60a5fa 0%,#1672df 100%); transition: height .25s ease; }
+    .weekly-day { color: #64748b; font-size: 12px; font-weight: 600; }
+    @@media(max-width: 640px) {
+        .weekly-chart { gap: 8px; padding-inline: 0; }
+        .weekly-column { height: 170px; }
+        .weekly-bar-area { height: 115px; width: min(100%, 38px); }
+    }
+</style>
 
-<!-- Grid 4 thẻ thống kê -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-    
-    <!-- Thẻ 1: Tổng số sách -->
-    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between">
-        <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-        </div>
+<div class="admin-dashboard space-y-6">
+    <header class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-            <div class="text-3xl font-extrabold text-gray-900">@ViewBag.totalBooks</div>
-            <div class="text-sm font-medium text-gray-500 mt-1">Tổng số sách</div>
+            <h1 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Tổng quan thư viện</h1>
+            <p class="mt-1 text-sm text-slate-500">Theo dõi nhanh hoạt động của BOOKLY.</p>
         </div>
-    </div>
+        <span class="text-sm text-slate-500">Cập nhật: @DateTime.Now.ToString("dd/MM/yyyy HH:mm")</span>
+    </header>
 
-    <!-- Thẻ 2: Đang được mượn -->
-    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between">
-        <div class="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center text-sky-600 mb-4">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
-        </div>
-        <div>
-            <div class="text-3xl font-extrabold text-gray-900">@ViewBag.borrowed</div>
-            <div class="text-sm font-medium text-gray-500 mt-1">Đang được mượn</div>
-        </div>
-    </div>
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <p class="text-sm text-slate-500">Tổng số sách</p>
+            <p class="mt-2 text-3xl font-bold text-slate-900">@Model.TotalBooks</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <p class="text-sm text-slate-500">Đang được mượn</p>
+            <p class="mt-2 text-3xl font-bold text-slate-900">@Model.BorrowedBooks</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <p class="text-sm text-slate-500">Người dùng</p>
+            <p class="mt-2 text-3xl font-bold text-slate-900">@Model.TotalUsers</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <p class="text-sm text-slate-500">Phiếu quá hạn</p>
+            <p class="mt-2 text-3xl font-bold text-slate-900">@Model.ExpiredRequests</p>
+        </article>
+    </section>
 
-    <!-- Thẻ 3: Người dùng -->
-    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between">
-        <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600 mb-4">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+    <section class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="flex flex-col gap-4 border-b border-slate-100 p-5 sm:p-6 md:flex-row md:items-center md:justify-between">
+            <div>
+                <h2 class="text-lg font-bold text-slate-900">Lượt mượn sách</h2>
+                <p class="mt-1 text-sm text-slate-500">Số cuốn sách được mượn theo từng ngày trong tuần</p>
+            </div>
+            <form asp-controller="Admin" asp-action="Index" method="get" class="flex flex-wrap items-end gap-2">
+                <div>
+                    <label for="weekOf" class="mb-1 block text-xs font-semibold text-slate-600">Chọn một ngày trong tuần</label>
+                    <input id="weekOf" name="weekOf" type="date" value="@Model.SelectedDate.ToString("yyyy-MM-dd")"
+                           class="rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100" />
+                </div>
+                <button type="submit" class="rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-700">Áp dụng</button>
+                <a asp-controller="Admin" asp-action="Index" class="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">Tuần này</a>
+            </form>
         </div>
-        <div>
-            <div class="text-3xl font-extrabold text-gray-900">@ViewBag.totalUser</div>
-            <div class="text-sm font-medium text-gray-500 mt-1">Người dùng</div>
-        </div>
-    </div>
 
-    <!-- Thẻ 4: Quá hạn -->
-    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between">
-        <div class="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center text-rose-600 mb-4">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-        </div>
-        <div>
-            <div class="text-3xl font-extrabold text-gray-900">@ViewBag.expired</div>
-            <div class="text-sm font-medium text-gray-500 mt-1">Quá hạn</div>
-        </div>
-    </div>
+        <div class="p-5 sm:p-6">
+            <div class="mb-1 flex flex-wrap items-center justify-between gap-2">
+                <p class="text-sm font-semibold text-slate-800">
+                    @Model.WeekStart.ToString("dd/MM/yyyy") – @Model.WeekStart.AddDays(6).ToString("dd/MM/yyyy")
+                </p>
+                <p class="text-sm text-slate-500">Tổng <strong class="text-slate-900">@Model.TotalBorrowedInWeek</strong> cuốn sách</p>
+            </div>
 
+            <div class="weekly-chart" role="img" aria-label="Biểu đồ số sách mượn theo từng ngày trong tuần">
+                @foreach (var item in Model.DailyBorrowStats)
+                {
+                    var barHeight = maxCount == 0 ? 0 : Math.Max(5, (int)Math.Round((double)item.BookCount / maxCount * 100));
+                    <div class="weekly-column" title="@item.Date.ToString("dd/MM/yyyy"): @item.BookCount cuốn">
+                        <span class="weekly-value">@item.BookCount</span>
+                        <div class="weekly-bar-area">
+                            <div class="weekly-bar" style="height: @barHeight%;"></div>
+                        </div>
+                        <span class="weekly-day">@item.DayLabel</span>
+                    </div>
+                }
+            </div>
+
+            @if (Model.TotalBorrowedInWeek == 0)
+            {
+                <p class="mt-4 rounded-xl bg-slate-50 px-4 py-3 text-center text-sm text-slate-500">
+                    Chưa có lượt mượn sách trong tuần này.
+                </p>
+            }
+        </div>
+        <p class="border-t border-slate-100 px-5 py-3 text-xs leading-5 text-slate-500 sm:px-6">
+            Ghi chú: biểu đồ cộng số lượng sách trong chi tiết phiếu mượn theo ngày tạo phiếu (RequestedAt), không đếm số phiếu.
+        </p>
+    </section>
 </div>

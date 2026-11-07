@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookLy Project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c63b2ffdfc9dfbd4788509a3be4704d3ccffca7a")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookLy Project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookLy Project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

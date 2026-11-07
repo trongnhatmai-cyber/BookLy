@@ -1,14 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Trong Nhat\\Downloads\\BookLy_Project_dark_light_table_bordered\\BookLy Project\\",
+  "WorkspaceRootPath": "C:\\Users\\Trong Nhat\\Documents\\Github\\BookLy\\BookLy Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|c:\\users\\trong nhat\\downloads\\bookly_project_dark_light_table_bordered\\bookly project\\views\\admin\\usermanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\admin\\usermanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|c:\\users\\trong nhat\\downloads\\bookly_project_dark_light_table_bordered\\bookly project\\views\\home\\borrowhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\home\\borrowhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|c:\\users\\trong nhat\\documents\\github\\bookly\\bookly project\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{776F409E-598F-97FB-2828-66AFD304868B}|BookLy Project.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,27 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserManager.cshtml",
-              "DocumentMoniker": "C:\\Users\\Trong Nhat\\Downloads\\BookLy_Project_dark_light_table_bordered\\BookLy Project\\Views\\Admin\\UserManager.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\UserManager.cshtml",
-              "ToolTip": "C:\\Users\\Trong Nhat\\Downloads\\BookLy_Project_dark_light_table_bordered\\BookLy Project\\Views\\Admin\\UserManager.cshtml*",
-              "RelativeToolTip": "Views\\Admin\\UserManager.cshtml*",
-              "ViewState": "AgIAADEBAAAAAAAAAAAgwBoBAAAGAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Trong Nhat\\Documents\\Github\\BookLy\\BookLy Project\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Trong Nhat\\Documents\\Github\\BookLy\\BookLy Project\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACcAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-06T15:10:45.537Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "BorrowHistory.cshtml",
-              "DocumentMoniker": "C:\\Users\\Trong Nhat\\Downloads\\BookLy_Project_dark_light_table_bordered\\BookLy Project\\Views\\Home\\BorrowHistory.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\BorrowHistory.cshtml",
-              "ToolTip": "C:\\Users\\Trong Nhat\\Downloads\\BookLy_Project_dark_light_table_bordered\\BookLy Project\\Views\\Home\\BorrowHistory.cshtml",
-              "RelativeToolTip": "Views\\Home\\BorrowHistory.cshtml",
-              "ViewState": "AgIAAKIAAAAAAAAAAAAswL0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-06T15:09:53.457Z",
+              "WhenOpened": "2026-11-07T11:13:05.965Z",
               "EditorCaption": ""
             }
           ]

@@ -68,8 +68,7 @@ namespace BookLy_Project.Controllers
             var model = new AdminDashboardViewModel
             {
                 TotalBooks = _context.Books.Count(b => b.IsDeleted != true),
-                BorrowedBooks = _context.Books.Count(b => b.IsDeleted != true
-                    && b.AvailableQuantity < b.TotalQuantity),
+                BorrowedBooks = _context.BorrowRequests.Count(b=> b.Status == "Approved"),
                 TotalUsers = _context.Users.Count(),
                 ExpiredRequests = _context.BorrowRequests.Count(b =>
                     b.Status == "Expired" ||

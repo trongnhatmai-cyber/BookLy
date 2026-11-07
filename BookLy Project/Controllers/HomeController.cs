@@ -48,7 +48,14 @@ namespace BookLy_Project.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
+            // Kiểm tra tải khoản bị khóa
+            if (findUser.Status == "Locked")
+            {
+                TempData["LoginFail"] = "Tài khoản đã bị khóa !!!";
+                TempData["OpenLogin"] = "true";
 
+                return RedirectToAction("Index", "Home");
+            }
             // Đăng nhập thành công
             HttpContext.Session.SetInt32("UserId", findUser.UserId);
             HttpContext.Session.SetString("Name", findUser.Username);
